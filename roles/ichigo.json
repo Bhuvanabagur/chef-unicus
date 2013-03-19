@@ -1,7 +1,12 @@
 {
     "name": "ichigo",
     "description": "Raspberry Pi nodes",
-    "default_attributes": { },
+    "default_attributes": {
+	"ssh": {
+	    "PermitRootLogin": "yes",
+	    "PasswordAuthentication": "yes"
+	}
+    },
     "override_attributes": { },
     "json_class": "Chef::Role",
     "chef_type": "role",
