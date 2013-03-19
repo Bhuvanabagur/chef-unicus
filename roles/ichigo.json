@@ -12,6 +12,8 @@
     "chef_type": "role",
     "run_list": [
 	"recipe[iptables::ichigo]",
+	"recipe[modprobe-config]",
+	"recipe[modprobe-config::ichigo]",
 	"recipe[mount-suzuki]",
 	"recipe[sshd]"
     ]
