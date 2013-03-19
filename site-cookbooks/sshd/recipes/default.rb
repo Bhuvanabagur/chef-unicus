@@ -7,6 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package 'openssh-server' do
+  action :upgrade
+
+  notifies :restart, 'service[ssh]'
+end
+
 template '/etc/ssh/sshd_config' do
   owner 'root'
   group 'root'
@@ -16,6 +22,6 @@ template '/etc/ssh/sshd_config' do
 end
 
 service 'ssh' do
-  action [:enable, :start]
+  action :enable
   supports :start => true, :stop => true, :reload => true, :restart => true, :status => true
 end
