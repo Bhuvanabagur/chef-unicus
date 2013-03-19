@@ -1,0 +1,59 @@
+#!/bin/sh
+
+IPTABLES="/sbin/iptables"
+
+# interfaces
+lan_port="eth0"
+
+# IP addr range
+lan_range="192.168.0.0/24"
+any="0.0.0.0/0"
+
+# OpenVPN subnet segment
+ovpn_lan_range="10.8.0.0/24"
+
+
+###
+### Basic rules
+###
+
+$IPTABLES -t nat -F
+$IPTABLES -t nat -X
+$IPTABLES -F
+$IPTABLES -X
+
+# basically deny all incoming and forwarding packets
+$IPTABLES -P INPUT DROP
+$IPTABLES -P FORWARD DROP
+
+# basically allow all outgoing packets
+$IPTABLES -P OUTPUT ACCEPT
+
+###
+### Input rules
+###
+
+# allow access from me
+$IPTABLES -A INPUT -i lo -j ACCEPT
+
+# allow access from machines inside LAN
+$IPTABLES -A INPUT -s $lan_range -j ACCEPT
+
+# allow access from OpenVPN subnet
+$IPTABLES -A INPUT -s $ovpn_lan_range -j ACCEPT
+
+# allow packets of established connections
+$IPTABLES -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# allow ICMP
+$IPTABLES -A INPUT -p icmp -j ACCEPT
+
+# allow mosh shell
+$IPTABLES -A INPUT -p udp --dport 60000:61000 -j ACCEPT
+
+###
+### Logging
+###
+
+$IPTABLES -A INPUT -j LOG --log-prefix "IPTABLES_INPUT_LOG : " --log-level=info
+$IPTABLES -A FORWARD -j LOG --log-prefix "IPTABLES_FORWARD_LOG : " --log-level=info
