@@ -1,0 +1,29 @@
+127.0.0.1	localhost.localdomain	localhost
+::1	localhost6.localdomain6	localhost6
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+<%= node["cookbook-hostname"]["ipaddr"] %>	<%= node["cookbook-hostname"]["hostname"] %>.<%= node["cookbook-hostname"]["domainname"] %>		<%= node["cookbook-hostname"]["hostname"] %> # me
+
+# DHCP addr range: 192.168.0.200-240
+
+192.168.0.1	hitode.unicus.ddo.jp		hitode		# YAMAHA RX1000 router
+192.168.0.4	boruchan.unicus.ddo.jp		boruchan	# Boru-chan, the hedgehog, server
+192.168.0.5	aterm.unicus.ddo.jp		aterm		# WiFi AP
+192.168.0.6	kodomomoko.unicus.ddo.jp	kodomomoko	# Windows for ScanSnap (Let's note)
+192.168.0.250	mzk.unicus.ddo.jp		mzk		# PLANEX WiFi Converter for boruchan server
+192.168.0.249	planex-gw.unicus.ddo.jp	planex-gw	# PLANEX WiFi Converter GW-SC150N for ScanSnap server (kodomomoko)
+192.168.0.248	namazu.unicus.ddo.jp		namazu		# PLANEX WiFi Converter GW-SC300N2 for VIERA
+
+
+192.168.0.99	viera.unicus.ddo.jp		viera		# VIERA TH-L37RB3
+192.168.0.100	suzuki.unicus.ddo.jp		suzuki		# QNAP TS-699 Pro
+192.168.0.101	justio2270.unicus.ddo.jp	justio2270	# brother JUSTIO HL-2270DW monochrome printer
+192.168.0.151	ichigo01.unicus.ddo.jp		ichigo01	# Raspberry Pi
+

@@ -2,11 +2,17 @@
     "run_list": [
 	"recipe[basic-packages]",
 	"recipe[basic-packages::starfish]",
+	"recipe[hostname]",
 	"recipe[sshd]",
 	"recipe[openvpn]",
 	"recipe[logwatch]",
 	"recipe[rsyslog]",
 	"recipe[bind]",
 	"recipe[ruby1.9.1]"
-    ]
+    ],
+    "cookbook-hostname": {
+	"hostname": "starfish",
+	"domainname": "unicus.ddo.jp",
+	"ipaddr": "192.168.0.3"
+    }
 }

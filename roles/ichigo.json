@@ -5,6 +5,9 @@
 	"ssh": {
 	    "PermitRootLogin": "yes",
 	    "PasswordAuthentication": "yes"
+	},
+	"cookbook-hostname": {
+	    "domainname": "unicus.ddo.jp"
 	}
     },
     "override_attributes": { },
@@ -13,6 +16,7 @@
     "run_list": [
 	"recipe[basic-packages]",
 	"recipe[basic-packages::ichigo]",
+	"recipe[hostname]",
 	"recipe[iptables::ichigo]",
 	"recipe[modprobe-config]",
 	"recipe[modprobe-config::ichigo]",
