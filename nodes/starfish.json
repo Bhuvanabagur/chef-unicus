@@ -1,5 +1,6 @@
 {
     "run_list": [
-	"recipe[sshd]"
+	"recipe[sshd]",
+	"recipe[openvpn]"
     ]
 }

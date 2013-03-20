@@ -1,0 +1,75 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=JP, ST=Tokyo, L=Chiyoda, O=UNICUS, OU=changeme, CN=UNICUS/name=starfish/emailAddress=yuto@hayamiz.com
+        Validity
+            Not Before: Mar  6 04:34:59 2013 GMT
+            Not After : Mar  4 04:34:59 2023 GMT
+        Subject: C=JP, ST=Tokyo, L=Chiyoda, O=UNICUS, OU=changeme, CN=UNICUS/name=starfish/emailAddress=yuto@hayamiz.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (1024 bit)
+                Modulus:
+                    00:d9:24:4e:3b:11:9e:2d:29:d6:4c:ae:93:c7:6c:
+                    91:49:50:ac:4c:48:11:b6:2f:ef:41:b2:08:e2:eb:
+                    ea:b5:81:a1:cf:75:38:71:9d:e2:84:44:bb:47:dd:
+                    07:1b:f1:be:56:9d:da:66:1f:13:5a:7f:52:d1:18:
+                    95:f0:be:8a:07:92:63:00:fe:69:36:2f:8f:f0:5b:
+                    31:6e:ea:ca:4f:96:09:39:4c:69:16:ee:6c:1a:a1:
+                    01:f9:6c:40:40:36:90:b2:47:2e:1c:19:c2:3b:f3:
+                    af:ae:74:27:89:0e:f8:3e:e2:fb:b5:8e:f2:44:1a:
+                    4a:62:b9:ed:68:55:d0:2c:d3
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Server
+            Netscape Comment: 
+                Easy-RSA Generated Server Certificate
+            X509v3 Subject Key Identifier: 
+                E0:F4:1E:1B:1F:6D:1F:8B:1E:09:04:2C:5C:EE:68:BB:96:63:85:6F
+            X509v3 Authority Key Identifier: 
+                keyid:0C:D3:75:4D:AF:6F:79:F5:A6:B2:D1:77:AD:9D:A3:14:51:14:6A:E1
+                DirName:/C=JP/ST=Tokyo/L=Chiyoda/O=UNICUS/OU=changeme/CN=UNICUS/name=starfish/emailAddress=yuto@hayamiz.com
+                serial:EA:41:0C:69:28:11:46:62
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+    Signature Algorithm: sha1WithRSAEncryption
+         0d:23:e1:59:6b:25:82:9f:b4:0c:6e:22:1d:59:b0:79:05:5f:
+         30:bd:aa:f3:01:3b:f1:46:fb:e8:90:3d:b8:2e:7e:30:a5:b9:
+         6e:b9:03:69:a8:17:c1:05:7c:7f:51:db:cf:00:a7:05:6a:ca:
+         03:5b:71:1b:0e:e3:33:9e:22:f7:ad:6e:f0:87:6b:16:f4:d5:
+         54:0f:54:14:89:dc:bf:02:2e:9f:1d:ab:08:8b:7a:cc:40:71:
+         5e:ff:06:d0:ef:d8:e5:d0:72:6b:10:3b:9e:9c:a2:44:43:0e:
+         08:a2:70:1b:2d:80:7f:0a:ba:a1:44:97:ea:9f:db:ad:eb:d0:
+         8c:47
+-----BEGIN CERTIFICATE-----
+MIIEEzCCA3ygAwIBAgIBATANBgkqhkiG9w0BAQUFADCBmDELMAkGA1UEBhMCSlAx
+DjAMBgNVBAgTBVRva3lvMRAwDgYDVQQHEwdDaGl5b2RhMQ8wDQYDVQQKEwZVTklD
+VVMxETAPBgNVBAsTCGNoYW5nZW1lMQ8wDQYDVQQDEwZVTklDVVMxETAPBgNVBCkT
+CHN0YXJmaXNoMR8wHQYJKoZIhvcNAQkBFhB5dXRvQGhheWFtaXouY29tMB4XDTEz
+MDMwNjA0MzQ1OVoXDTIzMDMwNDA0MzQ1OVowgZgxCzAJBgNVBAYTAkpQMQ4wDAYD
+VQQIEwVUb2t5bzEQMA4GA1UEBxMHQ2hpeW9kYTEPMA0GA1UEChMGVU5JQ1VTMREw
+DwYDVQQLEwhjaGFuZ2VtZTEPMA0GA1UEAxMGVU5JQ1VTMREwDwYDVQQpEwhzdGFy
+ZmlzaDEfMB0GCSqGSIb3DQEJARYQeXV0b0BoYXlhbWl6LmNvbTCBnzANBgkqhkiG
+9w0BAQEFAAOBjQAwgYkCgYEA2SROOxGeLSnWTK6Tx2yRSVCsTEgRti/vQbII4uvq
+tYGhz3U4cZ3ihES7R90HG/G+Vp3aZh8TWn9S0RiV8L6KB5JjAP5pNi+P8FsxburK
+T5YJOUxpFu5sGqEB+WxAQDaQskcuHBnCO/OvrnQniQ74PuL7tY7yRBpKYrntaFXQ
+LNMCAwEAAaOCAWkwggFlMAkGA1UdEwQCMAAwEQYJYIZIAYb4QgEBBAQDAgZAMDQG
+CWCGSAGG+EIBDQQnFiVFYXN5LVJTQSBHZW5lcmF0ZWQgU2VydmVyIENlcnRpZmlj
+YXRlMB0GA1UdDgQWBBTg9B4bH20fix4JBCxc7mi7lmOFbzCBzQYDVR0jBIHFMIHC
+gBQM03VNr2959aay0XetnaMUURRq4aGBnqSBmzCBmDELMAkGA1UEBhMCSlAxDjAM
+BgNVBAgTBVRva3lvMRAwDgYDVQQHEwdDaGl5b2RhMQ8wDQYDVQQKEwZVTklDVVMx
+ETAPBgNVBAsTCGNoYW5nZW1lMQ8wDQYDVQQDEwZVTklDVVMxETAPBgNVBCkTCHN0
+YXJmaXNoMR8wHQYJKoZIhvcNAQkBFhB5dXRvQGhheWFtaXouY29tggkA6kEMaSgR
+RmIwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEB
+BQUAA4GBAA0j4VlrJYKftAxuIh1ZsHkFXzC9qvMBO/FG++iQPbgufjCluW65A2mo
+F8EFfH9R288ApwVqygNbcRsO4zOeIvetbvCHaxb01VQPVBSJ3L8CLp8dqwiLesxA
+cV7/BtDv2OXQcmsQO56cokRDDgiicBstgH8KuqFEl+qf263r0IxH
+-----END CERTIFICATE-----
