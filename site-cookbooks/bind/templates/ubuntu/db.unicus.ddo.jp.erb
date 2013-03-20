@@ -1,0 +1,32 @@
+$TTL	86400
+@	IN	SOA	unicus.ddo.jp. haya.unicus.ddo.jp. (
+			2013032001		; Serial
+			604800		; Refresh
+			86400		; Retry
+			2419200		; Expire
+			86400 )	; Negative Cache TTL
+	IN	NS	unicus.ddo.jp.
+
+@		IN	A	192.168.0.3
+hitode		IN	A	192.168.0.1
+starfish	IN	A	192.168.0.3
+www		IN	A	192.168.0.3
+boruchan	IN	A	192.168.0.4
+aterm		IN	A	192.168.0.5
+kodomomoko	IN	A	192.168.0.6
+
+viera		IN	A	192.168.0.99
+suzuki		IN	A	192.168.0.100
+justio2270	IN	A	192.168.0.101
+
+ichigo01	IN	A	192.168.0.151
+
+namazu		IN	A	192.168.0.248
+planex-gw	IN	A	192.168.0.249
+mzk		IN	A	192.168.0.250
+
+
+;; DHCP entries
+<% (200..240).each_with_index do |laddr, idx| %>
+dhcp<%= sprintf("%02d", idx) %>	IN	A	192.168.0.<%= laddr %>
+<% end %>

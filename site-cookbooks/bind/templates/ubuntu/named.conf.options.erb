@@ -1,0 +1,48 @@
+// define 'localnet' access control list
+acl localnet {
+	192.168.0.0/24;
+	10.8.0.0/24;
+	127.0.0.1;
+};
+
+options {
+	directory "/var/cache/bind";
+
+	// forward to Google Public DNS
+	// forwarders {
+	// 	8.8.8.8;
+	// 	8.8.4.4;
+	// };
+	
+	// forward to OpenDNS
+	// forwarders {
+	// 	208.67.222.222;
+	// 	208.67.222.220;
+	// };
+
+	// forwarders {
+	// 	8.8.8.8;
+	// 	8.8.4.4;
+	// };
+
+	// forward to IIJmio DNS servers
+	forwarders {
+		202.232.2.3;
+		202.232.2.2;
+	};
+
+
+	// allow queries only from 'localnet'
+	allow-query	{ localnet; };
+	allow-transfer	{ localnet; };
+	// allow-query-cache	{ localhost; };
+
+	auth-nxdomain no;    # conform to RFC1035
+	listen-on-v6 { any; };
+};
+
+logging {
+	// do not record reverse lookup error
+	category lame-servers { null; };
+};
+
