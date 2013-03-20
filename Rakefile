@@ -20,4 +20,9 @@ namespace :cook do
   task :starfish do
     sh 'bundle exec knife solo cook haya@starfish'
   end
+
+  desc 'Cook node: ichigo'
+  task :ichigo do
+    sh 'bundle exec knife solo cook pi@ichigo01'
+  end
 end
