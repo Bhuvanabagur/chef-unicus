@@ -1,0 +1,63 @@
+
+define host {
+	use		generic-host
+	host_name	sakuravps
+	alias		sakuravps
+	address		hayamiz.com
+}
+
+define host {
+	use		generic-host
+	host_name	toyama
+	alias		toyama
+	address		toyama.tkl.iis.u-tokyo.ac.jp
+}
+
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       sakuravps
+        service_description             HTTP
+        check_command                   check_http
+}
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       toyama
+        service_description             SSH
+        check_command                   check_ssh
+}
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       sakuravps
+        service_description             SSH
+        check_command                   check_ssh_port!10022
+}
+
+
+# 'check_smtp' command definition
+define command {
+        command_name    check_smtp_submission
+        command_line    /usr/lib/nagios/plugins/check_smtp -H '$HOSTADDRESS$' -p 587
+}
+
+define service{
+	use			generic-service
+	host_name		sakuravps
+	service_description	SMTP submission
+	check_command		check_smtp_submission
+}
+define service{
+	use			generic-service
+	host_name		sakuravps
+	service_description	IMAP
+	check_command		check_imap
+}
+define service{
+	use			generic-service
+	host_name		sakuravps
+	service_description	secure IMAP
+	check_command		check_simap
+}
+

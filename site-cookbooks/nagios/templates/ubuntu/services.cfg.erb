@@ -1,0 +1,44 @@
+define service {
+	hostgroup_name                  ping-servers
+	service_description             PING
+	check_command                   check_ping!5.0,5%!20.0,10%
+	use                             generic-service
+}
+
+# check that web services are running
+define service {
+	hostgroup_name                  http-servers
+	service_description             HTTP
+	check_command                   check_http
+	use                             generic-service
+}
+
+# check that ssh services are running
+define service {
+	hostgroup_name                  ssh-servers
+	service_description             SSH
+	check_command                   check_ssh
+	use                             generic-service
+}
+
+# check that telnet services are running
+define service {
+	hostgroup_name                  telnet-servers
+	service_description             TELNET
+	check_command                   check_telnet
+	use                             generic-service
+}
+
+define service {
+	host_name		suzuki
+	service_description	CIFS
+	check_command		check_disk_smb!suzuki!Public
+	use			generic-service
+}
+
+define service {
+	host_name		suzuki
+	service_description	NFS
+	check_command		check-nfs
+	use			generic-service
+}

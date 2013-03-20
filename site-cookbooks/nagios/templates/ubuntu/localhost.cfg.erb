@@ -1,0 +1,121 @@
+
+define host{
+	use		generic-host
+	host_name	hitode
+	alias		hitode
+	address	hitode.unicus.ddo.jp
+}
+
+define host{
+        use             generic-host            ; Name of host template to use
+        host_name       starfish
+        alias           starfish
+        parents         hitode
+        address         starfish.unicus.ddo.jp
+        }
+
+define host{
+        use             generic-host
+        host_name       justio2270
+        alias           justio2270
+        parents         hitode
+        address         justio2270.unicus.ddo.jp
+        }
+
+define host{
+        use             generic-host
+        host_name       suzuki
+        alias           suzuki
+        parents         hitode
+        address         suzuki.unicus.ddo.jp
+        }
+
+define host{
+        use             generic-host
+        host_name       aterm
+        alias           aterm
+        parents         hitode
+        address         aterm.unicus.ddo.jp
+        }
+
+define host{
+        use             generic-host
+        host_name       viera
+        alias           viera
+        parents         hitode
+        address         viera.unicus.ddo.jp
+        }
+
+define host{
+	use		generic-host
+	host_name	ichigo01
+	alias		ichigo01
+	parents	hitode
+	address	ichigo01.unicus.ddo.jp
+}
+
+# Define a service to check the disk space of the root partition
+# on the local machine.  Warning if < 20% free, critical if
+# < 10% free space on partition.
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       starfish
+        service_description             Disk Space
+        check_command                   check_all_disks!20%!10%
+        }
+
+define service {
+	use			generic-service
+	host_name		starfish
+	service_description	Apt Package Status
+	check_command		check_apt
+}
+
+
+# Define a service to check the number of currently logged in
+# users on the local machine.  Warning if > 20 users, critical
+# if > 50 users.
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       starfish
+        service_description             Current Users
+        check_command                   check_users!20!50
+        }
+
+
+# Define a service to check the number of currently running procs
+# on the local machine.  Warning if > 250 processes, critical if
+# > 400 processes.
+
+define service{
+	use                             generic-service         ; Name of service template to use
+	host_name                       starfish
+	service_description             Total Processes
+	check_command                   check_procs!250!400
+}
+
+
+
+# Define a service to check the load on the local machine. 
+
+define service{
+        use                             generic-service         ; Name of service template to use
+        host_name                       starfish
+        service_description             Current Load
+		check_command                   check_load!5.0!4.0!3.0!10.0!6.0!4.0
+        }
+
+define command{
+        command_name    check_http_port
+        command_line    /usr/lib/nagios/plugins/check_http -H '$HOSTADDRESS$' -I '$HOSTADDRESS$' -p $ARG1$
+        }
+
+define service {
+        host_name		starfish
+        service_description	GrowthForecast
+        check_command		check_http_port!4080
+        use			generic-service
+}
+

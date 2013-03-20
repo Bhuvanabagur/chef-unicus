@@ -1,0 +1,44 @@
+# Some generic hostgroup definitions
+
+# A simple wildcard hostgroup
+define hostgroup {
+        hostgroup_name  all
+		alias           All Servers
+		members         *
+        }
+
+# A list of your Debian GNU/Linux servers
+define hostgroup {
+        hostgroup_name  debian-servers
+		alias           Debian GNU/Linux Servers
+		members         starfish
+        }
+
+# A list of your ping servers
+define hostgroup {
+	hostgroup_name  ping-servers
+		alias           PING servers
+		members         hitode,justio2270,starfish,aterm,suzuki,justio2270,viera,ichigo01
+	}
+
+# A list of your web servers
+define hostgroup {
+        hostgroup_name  http-servers
+		alias           HTTP servers
+		members         starfish,aterm,suzuki,justio2270
+        }
+
+# A list of your ssh-accessible servers
+define hostgroup {
+        hostgroup_name  ssh-servers
+		alias           SSH servers
+		members         starfish,suzuki,ichigo01
+        }
+
+define hostgroup {
+        hostgroup_name  telnet-servers
+		alias           TELNET servers
+		members         hitode
+        }
+
+

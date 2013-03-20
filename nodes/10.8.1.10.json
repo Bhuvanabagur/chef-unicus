@@ -10,7 +10,8 @@
 	"recipe[ruby1.9.1]",
 	"recipe[nginx]",
 	"recipe[nginx::php5]",
-	"recipe[nginx::sites]"
+	"recipe[nginx::sites]",
+	"recipe[nagios]"
     ],
     "cookbook-hostname": {
 	"hostname": "vagrant",
