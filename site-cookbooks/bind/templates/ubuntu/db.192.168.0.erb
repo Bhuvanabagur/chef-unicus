@@ -26,5 +26,5 @@ $TTL	604800
 
 ;; DHCP entries
 <% (200..240).each_with_index do |laddr, idx| %>
-<%= laddr %>	IN	PTR	dhcp<%= sprintf("%02d", idx) %>
+<%= laddr %>	IN	PTR	dhcp<%= sprintf("%02d", idx) %>.unicus.ddo.jp.
 <% end %>
