@@ -18,7 +18,3 @@ group "i2c" do
   append true
   members 'pi'
 end
-
-package "python-smbus" do
-  action :upgrade
-end
