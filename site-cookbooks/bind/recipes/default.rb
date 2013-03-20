@@ -17,25 +17,46 @@ conf_options  = '/etc/bind/named.conf.options'
   end
 end
 
-[conf_options, zone_file, rev_zone_file].each do |file|
-  template file do
-    owner 'root'
-    group 'root'
-    mode 0644
+template conf_options do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :run, 'script[named config check]', :immediately
+end
 
-    notifies :run, 'script[named config check]', :immediately
-  end
+template zone_file do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :run, 'script[zone file check]', :immediately
+end
+
+template rev_zone_file do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :run, 'script[rev zone file check]', :immediately
 end
 
 script 'named config check' do
   interpreter 'bash'
   action :nothing
   user 'root'
-  code <<EOS
-named-checkconf /etc/bind/named.conf                    || exit 1
-named-checkzone unicus.ddo.jp          #{zone_file}     || exit 1
-named-checkzone 0.168.192.in-addr.arpa #{rev_zone_file} || exit 1
-EOS
+  code "named-checkconf /etc/bind/named.conf"
+end
+
+script 'zone file check' do
+  interpreter 'bash'
+  action :nothing
+  user 'root'
+  code "named-checkzone unicus.ddo.jp #{zone_file}"
+end
+
+script 'rev zone file check' do
+  interpreter 'bash'
+  action :nothing
+  user 'root'
+  code "named-checkzone 0.168.192.in-addr.arpa #{rev_zone_file}"
 end
 
 service 'bind9' do
