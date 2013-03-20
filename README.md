@@ -1,4 +1,6 @@
-ichigo-chef-repo
-================
+chef-unicus
+===========
 
-Chef cookbook repository for ichigo cluster (Raspberry Pi cluster in my home)
+[![Build Status](https://travis-ci.org/hayamiz/chef-unicus.png?branch=master)](https://travis-ci.org/hayamiz/chef-unicus)
+
+Chef cookbook repository for unicus domain
