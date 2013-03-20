@@ -1,6 +1,7 @@
 {
     "run_list": [
 	"recipe[sshd]",
-	"recipe[openvpn]"
+	"recipe[openvpn]",
+	"recipe[logwatch]"
     ]
 }
