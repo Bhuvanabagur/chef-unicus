@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w|binutils strace hping3|.each do |p|
+%w|binutils strace hping3 lv build-essential make libnfs-dev|.each do |p|
   package p do
     action :upgrade
   end
