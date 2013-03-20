@@ -24,20 +24,6 @@ template conf_options do
   notifies :run, 'script[named config check]', :immediately
 end
 
-template zone_file do
-  owner 'root'
-  group 'root'
-  mode 0644
-  notifies :run, 'script[zone file check]', :immediately
-end
-
-template rev_zone_file do
-  owner 'root'
-  group 'root'
-  mode 0644
-  notifies :run, 'script[rev zone file check]', :immediately
-end
-
 script 'named config check' do
   interpreter 'bash'
   action :nothing
@@ -45,11 +31,25 @@ script 'named config check' do
   code "named-checkconf /etc/bind/named.conf"
 end
 
+template zone_file do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :run, 'script[zone file check]', :immediately
+end
+
 script 'zone file check' do
   interpreter 'bash'
   action :nothing
   user 'root'
   code "named-checkzone unicus.ddo.jp #{zone_file}"
+end
+
+template rev_zone_file do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :run, 'script[rev zone file check]', :immediately
 end
 
 script 'rev zone file check' do
