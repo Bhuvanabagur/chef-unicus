@@ -18,6 +18,7 @@
 	"recipe[modprobe-config::ichigo]",
 	"recipe[mount-suzuki]",
 	"recipe[sshd]",
-	"recipe[i2c]"
+	"recipe[i2c]",
+	"recipe[rsyslog]"
     ]
 }
