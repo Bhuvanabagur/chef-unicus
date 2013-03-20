@@ -8,7 +8,10 @@
 	"recipe[logwatch]",
 	"recipe[rsyslog]",
 	"recipe[bind]",
-	"recipe[ruby1.9.1]"
+	"recipe[ruby1.9.1]",
+	"recipe[nginx]",
+	"recipe[nginx::php5]",
+	"recipe[nginx::sites]"
     ],
     "cookbook-hostname": {
 	"hostname": "starfish",

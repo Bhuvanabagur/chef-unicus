@@ -1,0 +1,176 @@
+# You may add here your
+# server {
+#	...
+# }
+# statements for each of your virtual hosts to this file
+
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+server {
+	listen   80; ## listen for ipv4; this line is default and implied
+
+	root /usr/share/nginx/www;
+	index index.html index.htm;
+
+	server_name unicus.ddo.jp;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to index.html
+		try_files $uri $uri/ /index.html;
+		# Uncomment to enable naxsi on this location
+		# include /etc/nginx/naxsi.rules
+	}
+
+	location /doc/ {
+		alias /usr/share/doc/;
+		autoindex on;
+		allow 127.0.0.1;
+		deny all;
+	}
+
+	# Only for nginx-naxsi : process denied requests
+	#location /RequestDenied {
+		# For example, return an error code
+		#return 418;
+	#}
+
+	#error_page 404 /404.html;
+
+	# redirect server error pages to the static page /50x.html
+	#
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /usr/share/nginx/www;
+	}
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	#location ~ /\.ht {
+	#	deny all;
+	#}
+
+	## CGIの場所
+	location /cgi-bin/nagios3 {
+		# gzip圧縮のoff
+		gzip off;
+
+		# cgi-binディレクトリのroot
+		root /usr/lib;
+
+		# fcgiwrapのソケット
+		fastcgi_pass unix:/var/run/fcgiwrap.socket;
+
+		# fastcgi関連のパラメータファイルの読み込み
+		include /etc/nginx/fastcgi_params;
+
+		# スクリプト ファイルの絶対パス名の設定
+		fastcgi_param SCRIPT_FILENAME /usr/lib$fastcgi_script_name;
+
+		# 認証されたユーザ名を変数REMOTE_USERに格納してCGIに渡す設定
+		fastcgi_param REMOTE_USER $remote_user;
+
+		# ベーシック認証
+		auth_basic "nagios";
+		auth_basic_user_file /etc/nagios3/htpasswd.users;
+	}
+
+	## CGIの場所
+	location /nagios3/cgi-bin {
+		# /nagios3/cgi-bin本来の場所の/cgi-bin/nagios3に書き換える
+		rewrite ^/nagios3/cgi-bin/(.*) /cgi-bin/nagios3/$1;
+	}
+
+	## スタイルシートの場所
+	location /nagios3/stylesheets {
+		alias /etc/nagios3/stylesheets;
+
+		# ベーシック認証
+		auth_basic "nagios";
+		auth_basic_user_file /etc/nagios3/htpasswd.users;
+	}
+
+	## NagiosのWebインターフェイスのコンテンツの場所
+	location /nagios3 {
+		alias /usr/share/nagios3/htdocs;
+		index index.php
+		# ベーシック認証
+		auth_basic "nagios";
+		auth_basic_user_file /etc/nagios3/htpasswd.users;
+	}
+
+	## PHP
+	# /nagios3ディレクトリ以下のphpファイルに一致する。
+	# ファイル名だけ後方参照できるように()で囲む。
+	location ~ ^/nagios3/(.*\.php)$ {
+		# php-fpmのソケット
+		fastcgi_pass 127.0.0.1:9000;
+
+		# fastcgi関連のパラメータファイルの読み込み
+		include /etc/nginx/fastcgi_params;
+
+		# スクリプト ファイルの絶対パス名の設定
+		# URLのパス名とファイルのパス名がファイル名以外が一致しないので、
+		# ファイル名だけ取り出して置き換える。
+		fastcgi_param SCRIPT_FILENAME /usr/share/nagios3/htdocs/$1;
+
+		# 認証されたユーザ名を変数REMOTE_USERに格納してPHPに渡す設定
+		fastcgi_param REMOTE_USER $remote_user;
+
+		# ベーシック認証
+		auth_basic "nagios";
+		auth_basic_user_file /etc/nagios3/htpasswd.users;
+	}
+}
+
+
+# another virtual host using mix of IP-, name-, and port-based configuration
+#
+#server {
+#	listen 8000;
+#	listen somename:8080;
+#	server_name somename alias another.alias;
+#	root html;
+#	index index.html index.htm;
+#
+#	location / {
+#		try_files $uri $uri/ /index.html;
+#	}
+#}
+
+
+# HTTPS server
+#
+#server {
+#	listen 443;
+#	server_name localhost;
+#
+#	root html;
+#	index index.html index.htm;
+#
+#	ssl on;
+#	ssl_certificate cert.pem;
+#	ssl_certificate_key cert.key;
+#
+#	ssl_session_timeout 5m;
+#
+#	ssl_protocols SSLv3 TLSv1;
+#	ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+#	ssl_prefer_server_ciphers on;
+#
+#	location / {
+#		try_files $uri $uri/ /index.html;
+#	}
+#}
