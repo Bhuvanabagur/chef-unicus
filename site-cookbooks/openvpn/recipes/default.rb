@@ -24,7 +24,7 @@ end
 
 script "set runtime ip_forward" do
   interpreter 'bash'
-  not_if "test `cat /proc/sys/net/ipv4/ip_forward` = '0'"
+  not_if "test `cat /proc/sys/net/ipv4/ip_forward` = '1'"
   action :run
   user 'root'
   code "echo 1 > /proc/sys/net/ipv4/ip_forward"
