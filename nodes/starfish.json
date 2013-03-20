@@ -6,6 +6,7 @@
 	"recipe[openvpn]",
 	"recipe[logwatch]",
 	"recipe[rsyslog]",
-	"recipe[bind]"
+	"recipe[bind]",
+	"recipe[ruby1.9.1]"
     ]
 }
