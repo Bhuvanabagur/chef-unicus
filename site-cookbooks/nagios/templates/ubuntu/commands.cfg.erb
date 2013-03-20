@@ -8,3 +8,8 @@ define command{
 	command_name	check_x224_port
 	command_line	/usr/lib/nagios/plugins/check_x224 -H $HOSTNAME$ -p $ARG1$
 }
+
+define command{
+	command_name	check_nfs
+	command_line	/usr/lib/nagios/plugins/check_nfs -H $HOSTNAME$ $ARG1$ $ARG2$ $ARG3$
+}

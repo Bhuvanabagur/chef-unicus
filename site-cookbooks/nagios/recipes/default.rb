@@ -47,6 +47,30 @@ remote_file '/usr/lib/nagios/plugins/check_x224' do
   mode 0755
 end
 
+# dir = `mktemp -d`
+script 'check_nfs build' do
+  not_if 'test -f /usr/lib/nagios/plugins/check_nfs'
+  interpreter 'bash'
+  action :run
+  user 'root'
+  # cwd dir
+  code <<EOS
+wget http://www.gbl-software.de/nagiosbinaries/check_nfs/check_nfs-0.01-src.tgz
+tar xf check_nfs-0.01-src.tgz
+cd check_nfs
+make
+cp checks/check_nfs      /usr/lib/nagios/plugins/check_nfs
+cp checks/check_nfs_file /usr/lib/nagios/plugins/check_nfs_file
+EOS
+end
+
+file '/usr/lib/nagios/plugins/check_nfs' do
+  action [:touch]
+  owner 'root'
+  group 'root'
+  mode 0755
+end
+
 service 'nagios3' do
   action [:enable, :start]
   supports :start => true, :stop => true, :restart => true, :reload => true, :status => true
