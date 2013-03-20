@@ -1,0 +1,20 @@
+{
+    "run_list": [
+	"recipe[basic-packages]",
+	"recipe[basic-packages::starfish]",
+	"recipe[sshd]",
+	"recipe[openvpn]",
+	"recipe[logwatch]",
+	"recipe[rsyslog]",
+	"recipe[bind]",
+	"recipe[ruby1.9.1]",
+	"recipe[nginx]",
+	"recipe[nginx::php5]",
+	"recipe[nginx::sites]"
+    ],
+    "cookbook-hostname": {
+	"hostname": "vagrant",
+	"domainname": "unicus.ddo.jp",
+	"ipaddr": "10.8.1.10"
+    }
+}
