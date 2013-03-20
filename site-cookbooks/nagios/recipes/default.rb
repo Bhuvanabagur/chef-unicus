@@ -28,7 +28,8 @@ end
 # install config files
 ["contacts.cfg", "extinfo.cfg", "generic-host.cfg",
  "generic-service.cfg", "hostgroups.cfg", "localhost.cfg",
- "otherhosts.cfg", "services.cfg", "timeperiods.cfg"].each do |name|
+ "otherhosts.cfg", "services.cfg", "timeperiods.cfg",
+ "commands.cfg"].each do |name|
   config_file = config_path + name
   template config_file do
     owner 'root'
@@ -36,6 +37,14 @@ end
     mode 0644
     notifies :restart, 'service[nagios3]'
   end
+end
+
+# check_x224
+remote_file '/usr/lib/nagios/plugins/check_x224' do
+  source 'http://troels.arvin.dk/code/nagios/check_x224'
+  owner 'root'
+  group 'root'
+  mode 0755
 end
 
 service 'nagios3' do

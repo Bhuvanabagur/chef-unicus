@@ -7,51 +7,75 @@ define host{
 }
 
 define host{
-        use             generic-host            ; Name of host template to use
-        host_name       starfish
-        alias           starfish
-        parents         hitode
-        address         starfish.unicus.ddo.jp
-        }
+	use             generic-host            ; Name of host template to use
+	host_name       starfish
+	alias           starfish
+	parents         hitode
+	address         starfish.unicus.ddo.jp
+}
 
 define host{
-        use             generic-host
-        host_name       justio2270
-        alias           justio2270
-        parents         hitode
-        address         justio2270.unicus.ddo.jp
-        }
+	use             generic-host
+	host_name       justio2270
+	alias           justio2270
+	parents         hitode
+	address         justio2270.unicus.ddo.jp
+}
 
 define host{
-        use             generic-host
-        host_name       suzuki
-        alias           suzuki
-        parents         hitode
-        address         suzuki.unicus.ddo.jp
-        }
+	use             generic-host
+	host_name       suzuki
+	alias           suzuki
+	parents         hitode
+	address         suzuki.unicus.ddo.jp
+}
 
 define host{
-        use             generic-host
-        host_name       aterm
-        alias           aterm
-        parents         hitode
-        address         aterm.unicus.ddo.jp
-        }
+	use             generic-host
+	host_name       aterm
+	alias           aterm
+	parents         hitode
+	address         aterm.unicus.ddo.jp
+}
 
 define host{
-        use             generic-host
-        host_name       viera
-        alias           viera
-        parents         hitode
-        address         viera.unicus.ddo.jp
-        }
+	use             generic-host
+	host_name       namazu
+	alias           namazu
+	address         namazu.unicus.ddo.jp
+	parents         hitode
+}
+
+define host{
+	use             generic-host
+	host_name       viera
+	alias           viera
+	address         viera.unicus.ddo.jp
+	parents         namazu
+}
+
+define host{
+	use		generic-host
+	host_name	kodomomoko
+	alias		kodomomoko
+	address	kodomomoko.unicus.ddo.jp
+	parents	hitode
+}
+
+define host{
+	use		generic-host
+	host_name	planex-gw
+	alias		planex-gw
+	address	planex-gw.unicus.ddo.jp
+	parents	hitode
+}
 
 define host{
 	use		generic-host
 	host_name	ichigo01
 	alias		ichigo01
-	parents	hitode
 	address	ichigo01.unicus.ddo.jp
+	parents	planex-gw
 }
 
 # Define a service to check the disk space of the root partition
@@ -59,11 +83,11 @@ define host{
 # < 10% free space on partition.
 
 define service{
-        use                             generic-service         ; Name of service template to use
-        host_name                       starfish
-        service_description             Disk Space
-        check_command                   check_all_disks!20%!10%
-        }
+	use                             generic-service         ; Name of service template to use
+	host_name                       starfish
+	service_description             Disk Space
+	check_command                   check_all_disks!20%!10%
+}
 
 define service {
 	use			generic-service
@@ -78,11 +102,11 @@ define service {
 # if > 50 users.
 
 define service{
-        use                             generic-service         ; Name of service template to use
-        host_name                       starfish
-        service_description             Current Users
-        check_command                   check_users!20!50
-        }
+	use                             generic-service         ; Name of service template to use
+	host_name                       starfish
+	service_description             Current Users
+	check_command                   check_users!20!50
+}
 
 
 # Define a service to check the number of currently running procs
@@ -101,21 +125,21 @@ define service{
 # Define a service to check the load on the local machine. 
 
 define service{
-        use                             generic-service         ; Name of service template to use
-        host_name                       starfish
-        service_description             Current Load
+	use                             generic-service         ; Name of service template to use
+	host_name                       starfish
+	service_description             Current Load
 		check_command                   check_load!5.0!4.0!3.0!10.0!6.0!4.0
-        }
+}
 
 define command{
-        command_name    check_http_port
-        command_line    /usr/lib/nagios/plugins/check_http -H '$HOSTADDRESS$' -I '$HOSTADDRESS$' -p $ARG1$
-        }
+	command_name    check_http_port
+	command_line    /usr/lib/nagios/plugins/check_http -H '$HOSTADDRESS$' -I '$HOSTADDRESS$' -p $ARG1$
+}
 
 define service {
-        host_name		starfish
-        service_description	GrowthForecast
-        check_command		check_http_port!4080
-        use			generic-service
+	host_name		starfish
+	service_description	GrowthForecast
+	check_command		check_http_port!4080
+	use			generic-service
 }
 
