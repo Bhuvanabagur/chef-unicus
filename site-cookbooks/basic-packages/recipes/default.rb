@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w|binutils|.each do |p|
+%w|binutils strace|.each do |p|
   package p do
     action :upgrade
   end
