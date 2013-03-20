@@ -5,6 +5,7 @@
 	"recipe[sshd]",
 	"recipe[openvpn]",
 	"recipe[logwatch]",
-	"recipe[rsyslog]"
+	"recipe[rsyslog]",
+	"recipe[bind]"
     ]
 }
