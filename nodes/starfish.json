@@ -1,7 +1,10 @@
 {
     "run_list": [
+	"recipe[basic-packages]",
+	"recipe[basic-packages::starfish]",
 	"recipe[sshd]",
 	"recipe[openvpn]",
-	"recipe[logwatch]"
+	"recipe[logwatch]",
+	"recipe[rsyslog]"
     ]
 }

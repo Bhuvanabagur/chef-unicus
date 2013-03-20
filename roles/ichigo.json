@@ -11,6 +11,8 @@
     "json_class": "Chef::Role",
     "chef_type": "role",
     "run_list": [
+	"recipe[basic-packages]",
+	"recipe[basic-packages::ichigo]",
 	"recipe[iptables::ichigo]",
 	"recipe[modprobe-config]",
 	"recipe[modprobe-config::ichigo]",
