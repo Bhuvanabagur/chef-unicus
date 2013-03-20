@@ -1,6 +1,6 @@
 name             'sshd'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Yuto HAYAMIZU'
+maintainer_email 'y.hayamizu@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures sshd'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
