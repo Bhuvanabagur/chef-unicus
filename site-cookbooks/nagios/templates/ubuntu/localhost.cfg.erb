@@ -16,9 +16,17 @@ define host{
 
 define host{
 	use             generic-host
+	host_name       aterm
+	alias           aterm
+	parents         hitode
+	address         aterm.unicus.ddo.jp
+}
+
+define host{
+	use             generic-host
 	host_name       justio2270
 	alias           justio2270
-	parents         hitode
+	parents         aterm
 	address         justio2270.unicus.ddo.jp
 }
 
@@ -32,18 +40,10 @@ define host{
 
 define host{
 	use             generic-host
-	host_name       aterm
-	alias           aterm
-	parents         hitode
-	address         aterm.unicus.ddo.jp
-}
-
-define host{
-	use             generic-host
 	host_name       namazu
 	alias           namazu
 	address         namazu.unicus.ddo.jp
-	parents         hitode
+	parents         aterm
 }
 
 define host{
@@ -59,7 +59,7 @@ define host{
 	host_name	kodomomoko
 	alias		kodomomoko
 	address	kodomomoko.unicus.ddo.jp
-	parents	hitode
+	parents	aterm
 }
 
 define host{
@@ -75,7 +75,15 @@ define host{
 	host_name	ichigo01
 	alias		ichigo01
 	address	ichigo01.unicus.ddo.jp
-	parents	planex-gw
+	parents	aterm
+}
+
+define host{
+	use		generic-host
+	host_name	envy100
+	alias		envy100
+	address	envy100.unicus.ddo.jp
+	parents	aterm
 }
 
 # Define a service to check the disk space of the root partition

@@ -1,8 +1,10 @@
 define service {
 	hostgroup_name                  ping-servers
 	service_description             PING
-	check_command                   check_ping!5.0,5%!20.0,10%
+	check_command                   check_ping!10.0,20%!50.0,50%
 	use                             generic-service
+	normal_check_interval		30
+	retry_check_interval		5
 }
 
 # check that web services are running
@@ -11,6 +13,12 @@ define service {
 	service_description             HTTP
 	check_command                   check_http
 	use                             generic-service
+}
+define service {
+	host_name		suzuki
+	service_description	HTTPS
+	check_command		check_https
+	use			generic-service
 }
 
 # check that ssh services are running
