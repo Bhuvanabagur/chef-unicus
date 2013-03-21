@@ -65,7 +65,6 @@ EOS
 end
 
 file '/usr/lib/nagios/plugins/check_nfs' do
-  action [:touch]
   owner 'root'
   group 'root'
   mode 0755
