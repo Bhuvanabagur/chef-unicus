@@ -7,7 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
-["linux-tools"].each do |p|
+development = ['systemtap', 'systemtap-sdt-dev', 'global']
+
+[*development].each do |p|
   package p do
     action :upgrade
   end

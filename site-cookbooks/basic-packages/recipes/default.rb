@@ -7,7 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w|binutils strace hping3 lv build-essential make libnfs-dev|.each do |p|
+networking  = ['hping3']
+development = ['binutils', 'strace', 'build-essential', 'make', 'libnfs-dev',
+               'linux-tools', 'autotools-dev']
+misc        = ['lv']
+
+[*networking,
+ *development,
+ *misc
+].each do |p|
   package p do
     action :upgrade
   end
