@@ -1,0 +1,1 @@
+{"name":"data_bag_item_email_root_hayamiz","json_class":"Chef::DataBagItem","chef_type":"data_bag_item","data_bag":"email","raw_data":{"id":"root_hayamiz","email":{"encrypted_data":"FSU/6whofLBZ/TtOqIjabL2bVGsEHgPdx3rthLQwQriYMw5f8IbOdTz2FA9M\nFRBg\n","iv":"nq7639lCL8GOj3Ikr5ewjQ==\n","version":1,"cipher":"aes-256-cbc"}}}

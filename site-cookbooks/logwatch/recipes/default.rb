@@ -10,3 +10,15 @@
 package 'logwatch' do
   action :upgrade
 end
+
+template '/etc/logwatch/conf/logwatch.conf' do
+  owner 'root'
+  group 'root'
+  mode 0644
+end
+
+directory '/var/cache/logwatch' do
+  owner 'root'
+  group 'root'
+  mode 0755
+end
