@@ -70,6 +70,12 @@ file '/usr/lib/nagios/plugins/check_nfs' do
   mode 0755
 end
 
+template '/usr/lib/nagios/plugins/check_git_fresness' do
+  owner 'root'
+  group 'root'
+  mode 0755
+end
+
 service 'nagios3' do
   action [:enable, :start]
   supports :start => true, :stop => true, :restart => true, :reload => true, :status => true
