@@ -32,7 +32,7 @@ def main(argv)
   parser.parse!(argv)
 
   Dir.chdir(option[:git_dir]) do
-    unless File.directory?('.git')
+    unless system('git log -n1>/dev/null')
       puts("NG --- Not a git directory: #{option[:git_dir]}")
       return false
     end
