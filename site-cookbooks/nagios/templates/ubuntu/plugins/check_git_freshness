@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'time'
+require 'optparse'
+
+def main(argv)
+  option = Hash.new
+  parser = OptionParser.new
+
+  option[:git_dir] = '.'
+  parser.on('-C', '--git-dir DIR',
+            'git directory') do |dir|
+    option[:git_dir] = dir
+  end
+
+  option[:freshness_limit] = Time.now - (1 * 24 * 3600) # 1 day
+  parser.on('-F', '--freshness SPEC',
+            'How fresh should the git repository be. Specify like "1day" or "2hours"') do |spec|
+    case spec
+    when /\A(\d+)days?\Z/
+      freshness = $~[1].to_i * 24 * 3600
+    when /\A(\d+)hours?\Z/
+      freshness = $~[1].to_i * 3600
+    when /\A(\d+)(?:minutes?|min)\Z/
+      freshness = $~[1].to_i * 60
+    else
+      raise OptionParser::InvalidArgument("Invalid spec '#{spec}' for --freshness")
+    end
+    option[:freshness_limit] = Time.now - freshness
+  end
+
+  parser.parse!(argv)
+
+  Dir.chdir(option[:git_dir]) do
+    unless File.directory?('.git')
+      puts("NG --- Not a git directory: #{option[:git_dir]}")
+      return false
+    end
+
+    date_str = `git log | grep '^Date:' | head -n 1`.gsub(/^Date:/, '').strip
+    last_commit_time = Time.parse(date_str)
+    if option[:freshness_limit] < last_commit_time
+      puts "OK --- last commit is fresh enough: #{last_commit_time}"
+      return true
+    else
+      puts "NG --- last commit is not fresh: #{last_commit_time}"
+      return false
+    end
+  end
+
+  return true
+end
+
+if __FILE__ == $0
+  exit(!!main(ARGV.dup))
+end
