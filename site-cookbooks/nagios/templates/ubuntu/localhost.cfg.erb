@@ -104,6 +104,12 @@ define service {
 	check_command		check_apt
 }
 
+define service {
+  use                  generic-service
+  host_name            starfish
+  service_description  Dropbox Backup Freshness
+  check_command        check_git_freshness!/mnt/backup/dropbox!12hours
+}
 
 # Define a service to check the number of currently logged in
 # users on the local machine.  Warning if > 20 users, critical

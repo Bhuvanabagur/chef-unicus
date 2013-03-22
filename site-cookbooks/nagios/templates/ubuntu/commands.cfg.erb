@@ -13,3 +13,8 @@ define command{
 	command_name	check_nfs
 	command_line	/usr/lib/nagios/plugins/check_nfs $HOSTNAME$ $ARG1$ $ARG2$ $ARG3$
 }
+
+define command {
+	command_name	check_git_freshness
+	command_line	/usr/lib/nagios/plugins/check_git_fresness --git-dir $ARG1$ --freshness $ARG2$
+}
