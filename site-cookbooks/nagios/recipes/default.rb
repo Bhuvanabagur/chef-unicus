@@ -70,7 +70,8 @@ file '/usr/lib/nagios/plugins/check_nfs' do
   mode 0755
 end
 
-template '/usr/lib/nagios/plugins/check_git_fresness' do
+template '/usr/lib/nagios/plugins/check_git_freshness' do
+  source 'plugins/check_git_freshness.erb'
   owner 'root'
   group 'root'
   mode 0755
