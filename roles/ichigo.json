@@ -23,6 +23,7 @@
 	"recipe[mount-suzuki]",
 	"recipe[sshd]",
 	"recipe[i2c]",
-	"recipe[rsyslog]"
+	"recipe[rsyslog]",
+	"recipe[nagios::ichigo]"
     ]
 }
