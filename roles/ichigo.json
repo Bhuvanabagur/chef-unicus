@@ -24,6 +24,7 @@
 	"recipe[sshd]",
 	"recipe[i2c]",
 	"recipe[rsyslog]",
-	"recipe[nagios::ichigo]"
+	"recipe[nagios::ichigo]",
+	"recipe[owfs]"
     ]
 }
