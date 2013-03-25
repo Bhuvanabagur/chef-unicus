@@ -1,0 +1,27 @@
+auto lo
+
+iface lo inet loopback
+# iface eth0 inet dhcp
+
+auto eth0
+iface eth0 inet static
+  address   <%= node['ipaddr'] %>
+  network   192.168.0.0
+  netmask   255.255.255.0
+  broadcast 192.168.0.255
+  gateway   192.168.0.1
+  dns-nameservers 192.168.0.3 192.168.0.1
+
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-driver wext
+wpa-ap-scan 1
+wpa-scan-ssid 0
+wpa-key-mgmt WPA-PSK
+wpa-proto WPA2
+wpa-pariwise CCMP
+wpa-group CCMP
+wpa-ssid "sabamisoAir"
+wpa-psk "0726305dd66d05e697b8ef0e8006bfafebee71c1f7faf5489687235be6dccfeb"
+
+iface default inet dhcp
