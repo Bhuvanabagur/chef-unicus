@@ -77,6 +77,13 @@ define host{
 	address	ichigo01.unicus.ddo.jp
 	parents	planex-gw
 }
+define host{
+	use		generic-host
+	host_name	ichigo01-wlan
+	alias		ichigo01-wlan
+	address	ichigo01-wlan.unicus.ddo.jp
+	parents	aterm
+}
 
 define host{
 	use		generic-host
