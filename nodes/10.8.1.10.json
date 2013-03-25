@@ -14,9 +14,9 @@
 	"recipe[nagios]",
 	"recipe[mount-suzuki]"
     ],
+    "ipaddr": "10.8.1.10",
     "cookbook-hostname": {
 	"hostname": "vagrant",
-	"domainname": "unicus.ddo.jp",
-	"ipaddr": "10.8.1.10"
+	"domainname": "unicus.ddo.jp"
     }
 }

@@ -13,7 +13,7 @@ when "starfish"
 when /\Aichigo[0-9]{2}/
   hosts_source_file = 'ichigo.hosts.erb'
 else
-  raise RuntimeError.new("Unknown host: #{node["chef-hostname"]}")
+  raise RuntimeError.new("Unknown host: #{node["cookbook-hostname"]["hostname"]}")
 end
 
 template '/etc/hostname' do

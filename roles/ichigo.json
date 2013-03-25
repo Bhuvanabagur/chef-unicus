@@ -14,6 +14,7 @@
     "json_class": "Chef::Role",
     "chef_type": "role",
     "run_list": [
+	"recipe[networking::ichigo]",
 	"recipe[basic-packages]",
 	"recipe[basic-packages::ichigo]",
 	"recipe[hostname]",

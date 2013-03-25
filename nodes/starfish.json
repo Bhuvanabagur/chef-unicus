@@ -14,9 +14,9 @@
 	"recipe[nginx::sites]",
 	"recipe[nagios]"
     ],
+    "ipaddr": "192.168.0.3",
     "cookbook-hostname": {
 	"hostname": "starfish",
-	"domainname": "unicus.ddo.jp",
-	"ipaddr": "192.168.0.3"
+	"domainname": "unicus.ddo.jp"
     }
 }
