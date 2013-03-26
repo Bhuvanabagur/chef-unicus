@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+owfs_mount_point = '/mnt/owfs'
+
 package 'owfs' do
   action :upgrade
 end
@@ -21,7 +23,7 @@ group 'fuse' do
   members 'pi'
 end
 
-directory '/mnt/owfs' do
+directory owfs_mount_point do
   action :create
   owner 'root'
   group 'root'
@@ -34,6 +36,21 @@ template '/etc/owfs.conf' do
   mode 0644
 
   notifies :restart, 'service[owserver]'
+end
+
+template '/sbin/mount.owfs' do
+  owner 'root'
+  group 'root'
+  mode 0755
+end
+
+mount owfs_mount_point do
+  action [:enable, :mount]
+  device '/dev/i2c-1'
+  fstype 'owfs'
+  mount_point owfs_mount_point
+  options 'allow_other'
+  pass 0
 end
 
 service 'owserver' do

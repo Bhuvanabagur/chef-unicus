@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# OWFS mount helper
+# Based on mount.fuse v0.0.1 by Petr Klima <[EMAIL PROTECTED]>
+#
+# George M. Zouganelis <[EMAIL PROTECTED]>
+#
+
+VERSION="0.0.1"
+PRGNAME=`basename $0`
+
+USAGE="${PRGNAME} version ${VERSION}
+usage: ${PRGNAME} mountpath mountpoint [fuse-opts]
+
+        example: ${PRGNAME} /dev/ttyS0 /mnt/owfs
+"
+
+function die {
+        echo -e "$PRGNAME# $1" >&2
+        [ -z "$2" ] && exit 128
+        exit "$2"
+}
+
+[ "$#" -ge 2 ] || die "${USAGE}"
+
+
+export PATH
+OWFSBIN=`which owfs 2>/dev/null` \
+        || die "Can not find owfs mount binary " 1
+
+MOUNTPATH="$1"
+MOUNTPOINT="$2"
+[ -d "${MOUNTPOINT}" ] || die "Directory ${MOUNTPOINT} does not exist"
+
+shift
+shift
+
+ignore_opts="(user|nouser|users|auto|noauto|_netdev)"
+
+OPTIONS=`echo $@ | sed -r "s/(,${ignore_opts}|${ignore_opts},)//g"`
+if test -n "$OPTIONS"; then
+  ${OWFSBIN} --fuse-opt "\"$OPTIONS\"" $MOUNTPATH $MOUNTPOINT
+else
+  ${OWFSBIN} $MOUNTPATH $MOUNTPOINT
+fi
