@@ -1,16 +1,20 @@
 $TTL	86400
 @	IN	SOA	unicus.ddo.jp. haya.unicus.ddo.jp. (
-			2013032501		; Serial
+			2013032701	; Serial
 			604800		; Refresh
 			86400		; Retry
 			2419200		; Expire
 			86400 )	; Negative Cache TTL
+
 	IN	NS	unicus.ddo.jp.
+	IN	MX	10	mailhost.unicus.ddo.jp.
 
 @		IN	A	192.168.0.3
 hitode		IN	A	192.168.0.1
 starfish	IN	A	192.168.0.3
 www		IN	A	192.168.0.3
+mail		IN	A	192.168.0.3
+mailhost	IN	A	192.168.0.3
 boruchan	IN	A	192.168.0.4
 aterm		IN	A	192.168.0.5
 kodomomoko	IN	A	192.168.0.6
