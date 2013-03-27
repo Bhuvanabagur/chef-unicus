@@ -12,7 +12,10 @@
 	"recipe[nginx]",
 	"recipe[nginx::php5]",
 	"recipe[nginx::sites]",
-	"recipe[nagios]"
+	"recipe[nagios]",
+	"recipe[postfix]",
+	"recipe[aliases]",
+	"recipe[postfix::starfish]"
     ],
     "ipaddr": "192.168.0.3",
     "cookbook-hostname": {

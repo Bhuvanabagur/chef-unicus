@@ -26,6 +26,9 @@
 	"recipe[i2c]",
 	"recipe[rsyslog]",
 	"recipe[nagios::ichigo]",
+	"recipe[postfix]",
+	"recipe[aliases]",
+	"recipe[postfix::ichigo]",
 	"recipe[owfs]"
     ]
 }

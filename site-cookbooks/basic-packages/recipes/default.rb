@@ -10,7 +10,7 @@
 networking  = ['hping3']
 development = ['binutils', 'strace', 'build-essential', 'make', 'libnfs-dev',
                'linux-tools', 'autotools-dev']
-misc        = ['lv', 'bc']
+misc        = ['lv', 'bc', 'mailutils']
 
 [*networking,
  *development,
