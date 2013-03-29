@@ -17,6 +17,7 @@
 	"recipe[networking::ichigo]",
 	"recipe[basic-packages]",
 	"recipe[basic-packages::ichigo]",
+	"recipe[basic-gems]",
 	"recipe[hostname]",
 	"recipe[iptables::ichigo]",
 	"recipe[modprobe-config]",
