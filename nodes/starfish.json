@@ -9,13 +9,15 @@
 	"recipe[rsyslog]",
 	"recipe[bind]",
 	"recipe[ruby1.9.1]",
+	"recipe[basic-gems]",
 	"recipe[nginx]",
 	"recipe[nginx::php5]",
 	"recipe[nginx::sites]",
 	"recipe[nagios]",
 	"recipe[postfix]",
 	"recipe[aliases]",
-	"recipe[postfix::starfish]"
+	"recipe[postfix::starfish]",
+	"recipe[redis]"
     ],
     "ipaddr": "192.168.0.3",
     "cookbook-hostname": {
