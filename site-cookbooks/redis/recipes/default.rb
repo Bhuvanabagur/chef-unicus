@@ -42,6 +42,12 @@ directory '/etc/redis' do
   mode 0755
 end
 
+directory '/var/lib/redis' do
+  owner 'root'
+  group 'root'
+  mode 0755
+end
+
 template '/etc/redis/redis.conf' do
   owner 'root'
   group 'root'
