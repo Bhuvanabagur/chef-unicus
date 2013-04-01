@@ -17,7 +17,8 @@
 	"recipe[postfix]",
 	"recipe[aliases]",
 	"recipe[postfix::starfish]",
-	"recipe[redis]"
+	"recipe[redis]",
+	"recipe[resque]"
     ],
     "ipaddr": "192.168.0.3",
     "cookbook-hostname": {

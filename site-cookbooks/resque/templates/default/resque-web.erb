@@ -1,0 +1,65 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          resque-web
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts resque-web server
+# Description:       starts resque-web using start-stop-daemon
+### END INIT INFO
+
+if ! which resque-web > /dev/null; then
+    echo "[ERROR] resque is not installed"
+    exit 1
+fi
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=`which resque-web`
+NAME=resque-web
+DESC=resque-web
+
+SERVER=thin
+PIDFILE=/var/run/$NAME.pid
+LOGFILE=/var/log/resque.log
+
+test -x $DAEMON || exit 0
+
+set -e
+
+. /lib/lsb/init-functions
+
+case "$1" in
+	start)
+		echo -n "Starting $DESC: "
+		start-stop-daemon --start --quiet --pidfile $PIDFILE \
+		    --exec $DAEMON -- --server $SERVER --pid-file $PIDFILE --log-file $LOGFILE || true
+		echo "$NAME."
+		;;
+
+	stop)
+		echo -n "Stopping $DESC: "
+		start-stop-daemon --stop --quiet --pidfile $PIDFILE || true
+		echo "$NAME."
+		;;
+
+	restart|force-reload)
+		echo -n "Restarting $DESC: "
+		start-stop-daemon --stop --quiet --pidfile $PIDFILE || true
+		sleep 1
+		start-stop-daemon --start --quiet --pidfile $PIDFILE \
+                    --exec $DAEMON -- --server $SERVER --pid-file $PIDFILE --log-file $LOGFILE || true
+		echo "$NAME."
+		;;
+
+	status)
+		status_of_proc -p $PIDFILE "$DAEMON" "$NAME" && exit 0 || exit $?
+		;;
+	*)
+		echo "Usage: $NAME {start|stop|restart|status}" >&2
+		exit 1
+		;;
+esac
+
+exit 0
