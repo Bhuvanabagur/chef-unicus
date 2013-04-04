@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-gem_package 'tw' do
-  
+['tw',
+ 'bundler'
+].each do |gem|
+  gem_package gem do
+
+  end
 end
