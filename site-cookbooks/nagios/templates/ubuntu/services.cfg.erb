@@ -57,3 +57,10 @@ define service {
 	check_command		check_x224
 	use			generic-service
 }
+
+define service {
+	hostgroup_name		ichigo-cluster
+	service_description	BoruBot sensor fetcher process
+	check_command		check_borubot_sensor_fetcher
+	use			generic-service
+}

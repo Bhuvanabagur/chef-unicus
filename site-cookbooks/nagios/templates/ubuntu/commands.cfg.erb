@@ -18,3 +18,8 @@ define command {
 	command_name	check_git_freshness
 	command_line	/usr/lib/nagios/plugins/check_git_freshness --git-dir $ARG1$ --freshness $ARG2$
 }
+
+define command{
+	command_name    check_borubot_sensor_fetcher
+	command_line    /usr/lib/nagios/plugins/check_by_ssh -l pi -H '$HOSTADDRESS$' -C "ps aux|grep -v grep|grep 'borubot sensor-fetcher'"
+}
