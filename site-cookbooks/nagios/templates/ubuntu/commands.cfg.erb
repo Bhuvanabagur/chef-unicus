@@ -21,5 +21,10 @@ define command {
 
 define command{
 	command_name    check_borubot_sensor_fetcher
-	command_line    /usr/lib/nagios/plugins/check_by_ssh -l pi -H '$HOSTADDRESS$' -C "ps aux|grep -v grep|grep 'borubot sensor-fetcher'"
+	command_line    /usr/lib/nagios/plugins/check_by_ssh -l pi -H '$HOSTADDRESS$' -C "ps aux|grep -v grep|grep 'borubot sensor-fetcher' || exit 2"
+}
+
+define command {
+	command_name    check_borubot_worker
+	command_line    sh -c 'ps aux|grep -v grep|grep resque|grep boru_bot || exit 2'
 }
