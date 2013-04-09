@@ -16,7 +16,7 @@ template '/etc/network/interfaces' do
   group 'root'
   mode 0644
 
-  # notifies :restart, 'service[networking]'
+  notifies :restart, 'service[networking]'
 end
 
 service 'networking' do
