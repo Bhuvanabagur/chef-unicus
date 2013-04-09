@@ -44,16 +44,16 @@ template '/sbin/mount.owfs' do
   mode 0755
 end
 
+service 'owserver' do
+  action :enable
+  supports :start => true, :stop => true, :restart => true, :status => true
+end
+
 mount owfs_mount_point do
-  action [:enable, :mount]
+  action :enable
   device '/dev/i2c-1'
   fstype 'owfs'
   mount_point owfs_mount_point
   options 'allow_other'
   pass 0
-end
-
-service 'owserver' do
-  action :enable
-  supports :start => true, :stop => true, :restart => true, :status => true
 end
