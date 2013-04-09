@@ -18,3 +18,12 @@ group "i2c" do
   append true
   members 'pi'
 end
+
+script 'load i2c-bcm2708' do
+  action :run
+  interpreter 'bash'
+  user 'root'
+  code <<EOS
+modprobe i2c-bcm2708
+EOS
+end
