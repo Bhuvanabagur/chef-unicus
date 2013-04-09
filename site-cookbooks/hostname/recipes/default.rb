@@ -10,7 +10,7 @@
 case node["cookbook-hostname"]["hostname"]
 when "starfish"
   hosts_source_file = 'starfish.hosts.erb'
-when /\Aichigo[0-9]{2}/
+when /\Aichigo/
   hosts_source_file = 'ichigo.hosts.erb'
 else
   raise RuntimeError.new("Unknown host: #{node["cookbook-hostname"]["hostname"]}")
