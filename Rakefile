@@ -15,6 +15,13 @@ namespace :cookbook do
   end
 end
 
+namespace :prepare do
+  desc 'Prepare node: ichigo-dev'
+  task :ichigo_dev do
+    sh 'bundle exec knife solo prepare pi@ichigo-dev'
+  end
+end
+
 namespace :cook do
   desc 'Cook node: vagrant'
   task :vagrant do
@@ -26,8 +33,13 @@ namespace :cook do
     sh 'bundle exec knife solo cook haya@starfish'
   end
 
-  desc 'Cook node: ichigo'
-  task :ichigo do
+  desc 'Cook node: ichigo-dev'
+  task :ichigo_dev do
+    sh 'bundle exec knife solo cook pi@ichigo-dev'
+  end
+
+  desc 'Cook node: ichigo01'
+  task :ichigo01 do
     sh 'bundle exec knife solo cook pi@ichigo01'
   end
 end
