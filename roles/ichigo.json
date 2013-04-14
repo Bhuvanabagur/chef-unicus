@@ -30,6 +30,7 @@
 	"recipe[postfix]",
 	"recipe[aliases]",
 	"recipe[postfix::ichigo]",
-	"recipe[owfs]"
+	"recipe[owfs]",
+	"recipe[lirc]"
     ]
 }

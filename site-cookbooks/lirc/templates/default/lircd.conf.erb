@@ -1,0 +1,105 @@
+
+# Please make this file available to others
+# by sending it to <lirc@bartelmus.de>
+#
+# this config file was automatically generated
+# using lirc-0.9.0-pre1(default) on Thu Apr 11 21:10:30 2013
+#
+# contributed by 
+#
+# brand:                       /home/pi/lirc.conf
+# model no. of remote control: 
+# devices being controlled by this remote:
+#
+
+begin remote
+  name  HITACHI
+  bits           32
+  flags SPACE_ENC|CONST_LENGTH
+  eps            30
+  aeps          100
+
+  header       3367  1723
+  one           391  1296
+  zero          391   458
+  ptrail        379
+  pre_data_bits   56
+  pre_data       0x80080c0AF500FF
+  gap          146131
+  min_repeat      3
+#  suppress_repeat 3
+#  uncomment to suppress unwanted repeats
+  toggle_bit_mask 0x0
+
+      begin codes
+          WARM_LIGHT               0xC03F4FB0
+          WHITE_LIGHT              0x40BF4FB0
+          MODERATE_LIGHT           0x20DF43BC
+          WHITER                   0x708F43BC
+          WARMER                   0xF00F43BC
+          BRIGHTER                 0x609F43BC
+          DARKER                   0xE01F43BC
+          FULL_LIGHT               0x40BF43BC
+          TURN_OFF                 0xC03F43BC
+          SMALL_LIGHT              0x906F43BC
+      end codes
+end remote
+
+begin remote
+  name  AY-T22SC
+  flags  RAW_CODES
+  eps            30
+  aeps          100
+
+  gap          146131
+  min_repeat      0
+  toggle_bit_mask 0x0
+
+      begin raw_codes
+          name TURN_OFF
+            3800 2000 400 450 400 1500 400 450 400 1500 400 450 400 1500 400 450 400 1500 400 450 400 1500 400 450 400 1500 400 1500 400 450 400 1500 400 450 400 1500 400 1500 400 1500 400 1500 400 450 400 450 400 1500 400 1500 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 450 400 1500 400 1500 400 450 400 450 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 1500 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 1500 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400 1500 400 1500 400 1500 400 1500 400 1500 400 450 400 450 400 450 400 450 400 450 400 450 400 450 400
+      end raw_codes
+end remote
+
+begin remote
+
+  name  viera.conf
+  bits           24
+  flags SPACE_ENC
+  eps            30
+  aeps          100
+
+  header       3467  1754
+  one           425  1309
+  zero          425   443
+  ptrail        427
+  pre_data_bits   24
+  pre_data       0x400401
+  gap          75072
+  min_repeat      2
+#  suppress_repeat 2
+#  uncomment to suppress unwanted repeats
+  toggle_bit_mask 0x0
+
+      begin codes
+          button1                  0x900293
+          button2                  0x908213
+          button3                  0x9042D3
+          button4                  0x90C253
+          button5                  0x9022B3
+          button6                  0x90A233
+          button7                  0x9062F3
+          button8                  0x90E273
+          button9                  0x901283
+          button10                 0x909203
+          button11                 0x9052C3
+          button12                 0x90D243
+          blue                     0x00CECF
+          red                      0x000E0F
+          green                    0x008E8F
+          yellow                   0x004E4F
+          power                    0x00BCBD
+          bd_dvd                   0x909D0C
+      end codes
+
+end remote
