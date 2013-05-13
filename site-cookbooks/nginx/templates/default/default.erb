@@ -133,6 +133,11 @@ server {
 		auth_basic "nagios";
 		auth_basic_user_file /etc/nagios3/htpasswd.users;
 	}
+
+	# Apache userdir simulation.
+	location ~ ^/~(.+?)(/.*)?$ {
+		alias /home/$1/.public_html/$2;
+	}
 }
 
 
