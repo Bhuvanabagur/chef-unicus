@@ -26,5 +26,5 @@ define command{
 
 define command {
 	command_name    check_borubot_worker
-	command_line    sh -c 'ps aux|grep -v grep|grep resque|grep boru_bot || exit 2'
+	command_line    sh -c 'ps aux|grep -v grep|grep resque|grep "Waiting for borubot" || exit 2'
 }
