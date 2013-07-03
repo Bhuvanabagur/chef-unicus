@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-[].each do |p|
+['streamer', 'ffmpeg'].each do |p|
   package p do
     action :upgrade
   end
