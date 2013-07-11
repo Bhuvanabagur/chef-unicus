@@ -71,3 +71,10 @@ define service {
 	check_command		check_borubot_worker
 	use			generic-service
 }
+
+define service {
+	host_name		starfish
+	service_description	BoruBot TweetBot
+	check_command		check_borubot_tweetbot
+	use			generic-service
+}
