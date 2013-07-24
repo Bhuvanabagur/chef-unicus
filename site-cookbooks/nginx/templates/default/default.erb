@@ -63,6 +63,26 @@ server {
 	#}
 
 	## CGIの場所
+	location /cgi-bin {
+		# gzip圧縮のoff
+		gzip off;
+
+		# cgi-binディレクトリのroot
+		root /usr/lib;
+
+		# fcgiwrapのソケット
+		fastcgi_pass unix:/var/run/fcgiwrap.socket;
+
+		# fastcgi関連のパラメータファイルの読み込み
+		include /etc/nginx/fastcgi_params;
+
+		# スクリプト ファイルの絶対パス名の設定
+		fastcgi_param SCRIPT_FILENAME /usr/lib$fastcgi_script_name;
+
+		# 認証されたユーザ名を変数REMOTE_USERに格納してCGIに渡す設定
+		fastcgi_param REMOTE_USER $remote_user;
+	}
+
 	location /cgi-bin/nagios3 {
 		# gzip圧縮のoff
 		gzip off;
