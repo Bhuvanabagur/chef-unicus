@@ -103,6 +103,7 @@ define service {
 	service_description	Apt Package Status
 	check_command		check_apt
 	notification_interval	2880
+	normal_check_interval	10080
 }
 
 define service {
