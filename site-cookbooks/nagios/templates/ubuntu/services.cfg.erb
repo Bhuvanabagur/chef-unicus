@@ -1,7 +1,7 @@
 define service {
 	hostgroup_name                  ping-servers
 	service_description             PING
-	check_command                   check_ping!100.0,20%!500.0,60%
+	check_command                   check_ping!300.0,20%!500.0,60%
 	use                             generic-service
 	normal_check_interval		30
 	retry_check_interval		5
