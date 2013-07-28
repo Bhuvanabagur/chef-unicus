@@ -3,8 +3,8 @@
     "description": "Raspberry Pi nodes",
     "default_attributes": {
 	"ssh": {
-	    "PermitRootLogin": "yes",
-	    "PasswordAuthentication": "yes"
+	    "PermitRootLogin": "no",
+	    "PasswordAuthentication": "no"
 	},
 	"cookbook-hostname": {
 	    "domainname": "unicus.ddo.jp"
