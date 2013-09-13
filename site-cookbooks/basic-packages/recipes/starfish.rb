@@ -7,7 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-development = ['systemtap', 'systemtap-sdt-dev', 'global']
+development = %w!
+systemtap
+systemtap-sdt-dev
+global
+python-pip
+!
 
 [*development].each do |p|
   package p do

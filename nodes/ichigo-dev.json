@@ -3,5 +3,8 @@
     "ipaddr": "192.168.0.150",
     "cookbook-hostname": {
 	"hostname": "ichigo-dev"
+    },
+    "build_essential": {
+	"compiletime": true
     }
 }
