@@ -1,0 +1,1 @@
+{"name":"data_bag_item_passwords_ddo-jp","json_class":"Chef::DataBagItem","chef_type":"data_bag_item","data_bag":"passwords","raw_data":{"id":"ddo-jp","password":{"encrypted_data":"A2IcjyJU0I0FT5x7Tcxdo+aWhDm4l7LncEGdBzycfjjxOM4wcI7xSp3907MV\n83yO\n","iv":"5ZjV5V5meP5XinFLm67LiQ==\n","version":1,"cipher":"aes-256-cbc"}}}

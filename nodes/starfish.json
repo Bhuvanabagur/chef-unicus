@@ -21,7 +21,8 @@
 	"recipe[resque]",
 	"recipe[postgresql]",
 	"recipe[python]",
-	"recipe[aws]"
+	"recipe[aws]",
+	"recipe[crontab]"
     ],
     "ipaddr": "192.168.0.3",
     "cookbook-hostname": {
