@@ -114,3 +114,10 @@ cron "backup home" do
   user "haya"
   command "/home/haya/backup-home.sh"
 end
+
+cron "proximity check" do
+  minute "*"
+
+  user "haya"
+  command "/home/haya/Dropbox/mail-proximity.sh"
+end

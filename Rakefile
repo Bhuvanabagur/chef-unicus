@@ -42,4 +42,9 @@ namespace :cook do
   task :ichigo01 do
     sh 'bundle exec knife solo cook pi@ichigo01'
   end
+
+  desc 'Cook node: ichigo02'
+  task :ichigo02 do
+    sh 'bundle exec knife solo cook pi@ichigo02'
+  end
 end

@@ -83,6 +83,14 @@ define host{
 	address	ichigo01.unicus.ddo.jp
 	parents	aterm
 }
+define host{
+	use		generic-host
+	host_name	ichigo02
+	alias		ichigo02
+	hostgroups	ssh-servers
+	address	ichigo02.unicus.ddo.jp
+	parents	aterm
+}
 
 define host{
 	use		generic-host
@@ -90,6 +98,14 @@ define host{
 	alias		envy100
 	address	envy100.unicus.ddo.jp
 	parents	aterm
+}
+
+define host{
+	use             generic-host
+	host_name       guppy
+	alias           guppy
+	address         guppy.unicus.ddo.jp
+	parents         aterm
 }
 
 # Define a service to check the disk space of the root partition

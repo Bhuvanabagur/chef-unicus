@@ -1,9 +1,9 @@
 {
     "run_list":[ "role[ichigo]" ],
-    "ipaddr": "192.168.0.151",
-    "iface": "wlan0",
+    "ipaddr": "192.168.0.152",
+    "iface": "eth0",
     "cookbook-hostname": {
-	"hostname": "ichigo01"
+	"hostname": "ichigo02"
     },
     "build_essential": {
 	"compiletime": true
