@@ -28,6 +28,11 @@ namespace :cook do
     sh 'bundle exec knife solo cook vagrant@10.8.1.10 --identity-file /home/haya/.vagrant.d/insecure_private_key'
   end
 
+  desc 'Cook node: boxfish'
+  task :boxfish do
+    sh 'bundle exec knife solo cook haya@boxfish'
+  end
+
   desc 'Cook node: starfish'
   task :starfish do
     sh 'bundle exec knife solo cook haya@starfish'

@@ -88,7 +88,7 @@ cron "ddo-jp-update" do
   minute "*/30"
 
   user "haya"
-  command "/usr/bin/curl \"http://free.ddo.jp/dnsupdate.php?dn=unicus.ddo.jp&pw=#{ddo_jp_password}\""
+  command "/usr/bin/curl \"http://free.ddo.jp/dnsupdate.php?dn=unicus.ddo.jp&pw=#{ddo_jp_password}\" > /dev/null 2>&1"
 end
 
 cron "backup dropbox" do
@@ -96,15 +96,15 @@ cron "backup dropbox" do
   hour   "*/6"
 
   user "haya"
-  command "nice -n 19 /bin/bash /home/haya/Dropbox/backup-dropbox.sh"
+  command "nice -n 19 /bin/bash /home/haya/Dropbox/backup-dropbox.sh > /dev/null"
 end
 
 cron "daily du" do
   minute "0"
-  hour   "0"
+  hour   "3"
 
   user "haya"
-  command "LANG=C nice -n 19 /usr/bin/du --max-depth=5 /home/haya > /home/haya/dulog"
+  command "LANG=C nice -n 19 /usr/bin/du --max-depth=5 /home/haya > /home/haya/dulog 2>/dev/null"
 end
 
 cron "backup home" do
@@ -112,7 +112,7 @@ cron "backup home" do
   hour   "5"
 
   user "haya"
-  command "/home/haya/backup-home.sh"
+  command "/home/haya/backup-home.sh > /dev/null"
 end
 
 cron "proximity check" do
@@ -120,4 +120,12 @@ cron "proximity check" do
 
   user "haya"
   command "/home/haya/Dropbox/mail-proximity.sh"
+end
+
+cron "download radio movies" do
+  minute "0"
+  hour   "*"
+
+  user "haya"
+  command "/home/haya/Dropbox/Music/radio/download.sh"
 end

@@ -12,6 +12,8 @@ when "starfish"
   hosts_source_file = 'starfish.hosts.erb'
 when /\Aichigo/
   hosts_source_file = 'ichigo.hosts.erb'
+when "boxfish"
+  hosts_source_file = 'starfish.hosts.erb'
 else
   raise RuntimeError.new("Unknown host: #{node["cookbook-hostname"]["hostname"]}")
 end

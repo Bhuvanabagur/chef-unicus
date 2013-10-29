@@ -1,0 +1,37 @@
+{
+    "run_list": [
+	"recipe[network-manager]",
+	"recipe[networking]",
+	"recipe[basic-packages]",
+	"recipe[basic-packages::starfish]",
+	"recipe[hostname]",
+	"recipe[sshd]",
+	"recipe[openvpn]",
+	"recipe[logwatch]",
+	"recipe[rsyslog]",
+	"recipe[bind]",
+	"recipe[ruby1.9.1]",
+	"recipe[basic-gems]",
+	"recipe[nginx]",
+	"recipe[nginx::sites]",
+	"recipe[nginx::php5]",
+	"recipe[nagios]",
+	"recipe[postfix]",
+	"recipe[aliases]",
+	"recipe[postfix::starfish]",
+	"recipe[redis]",
+	"recipe[resque]",
+	"recipe[postgresql]",
+	"recipe[python]",
+	"recipe[aws]",
+	"recipe[crontab]"
+    ],
+    "ipaddr": "192.168.0.7",
+    "cookbook-hostname": {
+	"hostname": "boxfish",
+	"domainname": "unicus.ddo.jp"
+    },
+    "build_essential": {
+	"compiletime": true
+    }
+}

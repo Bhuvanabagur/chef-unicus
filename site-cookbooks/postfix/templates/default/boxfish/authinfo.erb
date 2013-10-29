@@ -1,0 +1,1 @@
+[mailhost.hayamiz.com]:587 <%= Chef::EncryptedDataBagItem.load('smtp_account', 'hayamiz_dot_com')['username'] %>:<%= Chef::EncryptedDataBagItem.load('smtp_account', 'hayamiz_dot_com')['password'] %>

@@ -16,12 +16,15 @@ end
 
 script 'redis-install' do
   not_if do
-    return false unless system('which redis-server')
-    return false unless File.basename(redis_tarball_uri) =~ /redis-(\d+\.\d+\.\d+)\.tar\.gz$/
-    uri_version = $~[1]
-    return false unless `redis-server --version` =~ / v=(\d+\.\d+\.\d+) /
-    installed_version = $~[1]
-    uri_version == installed_version
+    unless system('which redis-server')
+      false
+    else
+      File.basename(redis_tarball_uri) =~ /redis-(\d+\.\d+\.\d+)\.tar\.gz$/
+      uri_version = $~[1]
+      `redis-server --version` =~ / v=(\d+\.\d+\.\d+) /
+      installed_version = $~[1]
+      uri_version == installed_version
+    end
   end
   interpreter 'bash'
   action :run
