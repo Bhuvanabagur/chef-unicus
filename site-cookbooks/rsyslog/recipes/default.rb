@@ -19,6 +19,14 @@ template '/etc/rsyslog.conf' do
   notifies :restart, 'service[rsyslog]'
 end
 
+template '/etc/rsyslog.d/50-default.conf' do
+  owner 'root'
+  group 'root'
+  mode 0644
+
+  notifies :restart, 'service[rsyslog]'
+end
+
 service 'rsyslog' do
   action [:enable]
   supports :start => true, :stop => true, :restart => true, :reload => true
