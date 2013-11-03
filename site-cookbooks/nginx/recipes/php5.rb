@@ -24,3 +24,11 @@ service 'fcgiwrap' do
   action [:enable, :start]
   supports :start => true, :stop => true, :status => true, :restart => true, :reload => true
 end
+
+template "/etc/php5/fpm/pool.d/www.conf" do
+  owner 'root'
+  group 'root'
+  mode   0644
+
+  notifies :restart, 'service[php5-fpm]'
+end

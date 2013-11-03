@@ -136,7 +136,8 @@ server {
 	# ファイル名だけ後方参照できるように()で囲む。
 	location ~ ^/nagios3/(.*\.php)$ {
 		# php-fpmのソケット
-		fastcgi_pass 127.0.0.1:9000;
+		# fastcgi_pass 127.0.0.1:9000;
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
 
 		# fastcgi関連のパラメータファイルの読み込み
 		include /etc/nginx/fastcgi_params;

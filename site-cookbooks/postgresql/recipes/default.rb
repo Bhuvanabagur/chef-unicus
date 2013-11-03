@@ -12,7 +12,7 @@ template '/etc/apt/sources.list.d/pgdg.list' do
   group 'root'
   mode 0644
 
-  notifies :run, 'script[add key]'
+  notifies :run, 'script[add key]', :immediately
 end
 
 script 'add key' do

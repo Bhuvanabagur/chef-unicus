@@ -24,6 +24,7 @@
 	"recipe[modprobe-config::ichigo]",
 	"recipe[mount-suzuki]",
 	"recipe[sshd]",
+	"recipe[ssh-hostbased::ichigo-server]",
 	"recipe[i2c]",
 	"recipe[rsyslog]",
 	"recipe[nagios::ichigo]",

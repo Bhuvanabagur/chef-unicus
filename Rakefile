@@ -20,6 +20,12 @@ namespace :prepare do
   task :ichigo_dev do
     sh 'bundle exec knife solo prepare pi@ichigo-dev'
   end
+  
+  desc 'Prepare node: boxfish'
+  task :boxfish do
+    sh 'bundle exec knife solo prepare haya@boxfish'
+  end
+
 end
 
 namespace :cook do

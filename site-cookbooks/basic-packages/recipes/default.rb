@@ -7,14 +7,31 @@
 # All rights reserved - Do Not Redistribute
 #
 
-networking  = ['hping3']
-development = ['binutils', 'strace', 'build-essential', 'make', 'libnfs-dev',
-               'linux-tools', 'autotools-dev']
-misc        = ['lv', 'bc', 'mailutils', 'vim', 'tmux']
+networking  = ['hping3',
+               'curl',
+               'tcpdump']
+development = ['binutils',
+               'strace',
+               'build-essential',
+               'make',
+               'libnfs-dev',
+               'linux-tools',
+               'autotools-dev',
+               'git',
+               'manpages-dev']
+misc        = ['lv',
+               'bc',
+               'mailutils',
+               'vim',
+               'tmux',
+               'sysstat']
+storage = ['dosfstools',
+           'parted']
 
 [*networking,
  *development,
- *misc
+ *misc,
+ *storage
 ].each do |p|
   package p do
     action :upgrade
