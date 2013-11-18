@@ -91,13 +91,13 @@ cron "ddo-jp-update" do
   command "/usr/bin/curl \"http://free.ddo.jp/dnsupdate.php?dn=unicus.ddo.jp&pw=#{ddo_jp_password}\" > /dev/null 2>&1"
 end
 
-cron "backup dropbox" do
-  minute "30"
-  hour   "*/6"
-
-  user "haya"
-  command "nice -n 19 /bin/bash /home/haya/Dropbox/backup-dropbox.sh > /dev/null"
-end
+# cron "backup dropbox" do
+#   minute "30"
+#   hour   "*/6"
+# 
+#   user "haya"
+#   command "nice -n 19 /bin/bash /home/haya/Dropbox/backup-dropbox.sh > /dev/null"
+# end
 
 cron "daily du" do
   minute "0"
@@ -120,12 +120,4 @@ cron "proximity check" do
 
   user "haya"
   command "/home/haya/Dropbox/mail-proximity.sh"
-end
-
-cron "download radio movies" do
-  minute "0"
-  hour   "*"
-
-  user "haya"
-  command "/home/haya/Dropbox/Music/radio/download.sh"
 end
