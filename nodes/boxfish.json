@@ -4,10 +4,12 @@
 	"recipe[networking]",
 	"recipe[basic-packages]",
 	"recipe[basic-packages::starfish]",
+	"recipe[basic-packages::boxfish]",
 	"recipe[hostname]",
 	"recipe[sshd]",
 	"recipe[ssh-hostbased::boxfish-client]",
 	"recipe[mount-suzuki]",
+	"recipe[mountpoints::boxfish]",
 	"recipe[openvpn]",
 	"recipe[logwatch]",
 	"recipe[rsyslog]",
@@ -25,8 +27,10 @@
 	"recipe[resque]",
 	"recipe[postgresql]",
 	"recipe[python]",
-	"recipe[aws]"
-	/* "recipe[crontab]" */
+	"recipe[aws]",
+	"recipe[mdadm::boxfish]",
+	"recipe[smartmontools::boxfish]",
+	"recipe[crontab::boxfish]"
     ],
     "ipaddr": "192.168.0.7",
     "cookbook-hostname": {

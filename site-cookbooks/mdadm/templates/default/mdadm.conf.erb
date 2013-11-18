@@ -1,0 +1,27 @@
+# mdadm.conf
+#
+# Please refer to mdadm.conf(5) for information about this file.
+#
+
+# by default (built-in), scan all partitions (/proc/partitions) and all
+# containers for MD superblocks. alternatively, specify devices to scan, using
+# wildcards if desired.
+#DEVICE partitions containers
+
+# auto-create devices with Debian standard permissions
+CREATE owner=root group=disk mode=0660 auto=yes
+
+# automatically tag new arrays as belonging to the local system
+HOMEHOST <system>
+
+# instruct the monitoring daemon where to send mail alerts
+MAILADDR yuto@hayamiz.com
+MAILFROM root@boxfish.unicus.ddo.jp
+
+# definitions of existing MD arrays
+
+# This file was auto-generated on Sat, 09 Nov 2013 19:52:42 +0900
+# by mkconf 3.2.5-5
+
+ARRAY /dev/md0 metadata=1.2 name=boxfish:0 UUID=a769792b:d5a658b0:323f998f:af6f8c95
+ARRAY /dev/md1 metadata=1.2 name=boxfish:1 UUID=da48154f:9b48d7af:2e4a911d:1d70f4e6

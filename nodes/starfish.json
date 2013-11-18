@@ -6,8 +6,8 @@
 	"recipe[sshd]",
 	"recipe[openvpn]",
 	"recipe[logwatch]",
-	"recipe[rsyslog]",
-	/* "recipe[bind]", */
+	// "recipe[rsyslog]",
+	// "recipe[bind]",
 	"recipe[ruby1.9.1]",
 	"recipe[basic-gems]",
 	"recipe[nginx::sites]",
