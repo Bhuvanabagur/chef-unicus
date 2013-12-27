@@ -1,0 +1,10 @@
+service vnc-800x600x16
+{
+    disable         = no
+    socket_type     = stream
+    wait            = no
+    user            = nobody
+    server          = /usr/bin/Xvnc
+    server_args     = -inetd -query localhost -once -geometry 800x600 -depth 16 -securitytypes=none
+    log_on_failure  += USERID
+}

@@ -133,6 +133,7 @@ ifconfig-pool-persist ipp.txt
 # address pool (10.8.0.0/255.255.255.0)
 # back to the OpenVPN server.
 push "route 192.168.0.0 255.255.255.0"
+push "route 125.6.0.0 255.255.0.0" # kancolle data hotel
 
 # To assign specific IP addresses to specific
 # clients or if a connecting client has a private
@@ -190,7 +191,7 @@ push "route 192.168.0.0 255.255.255.0"
 # http://openvpn.net/faq.html#dhcpcaveats
 # The addresses below refer to the public
 # DNS servers provided by opendns.com.
-push "dhcp-option DNS 192.168.0.3"
+push "dhcp-option DNS 192.168.0.7"
 push "dhcp-option DNS 8.8.8.8"
 
 # Uncomment this directive to allow different

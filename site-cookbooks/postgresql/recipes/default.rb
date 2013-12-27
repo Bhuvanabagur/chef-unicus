@@ -29,6 +29,10 @@ package 'postgresql-9.2' do
   action :upgrade
 end
 
+package 'libpq-dev' do
+  action :upgrade
+end
+
 service 'postgresql' do
   action [:enable, :start]
   supports :start => true, :stop => true, :restart => true, :status => true

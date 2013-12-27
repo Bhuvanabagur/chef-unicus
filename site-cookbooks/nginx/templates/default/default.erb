@@ -157,7 +157,7 @@ server {
 
 	# Apache userdir simulation.
 	location ~ ^/~(.+?)(/.*)?$ {
-		alias /home/$1/.public_html/$2;
+		alias /home/$1/public_html/$2;
 	}
 }
 

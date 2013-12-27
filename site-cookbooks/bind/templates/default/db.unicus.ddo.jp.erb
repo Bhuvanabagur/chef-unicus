@@ -1,15 +1,15 @@
 $TTL	86400
 @	IN	SOA	boxfish.unicus.ddo.jp. haya.unicus.ddo.jp. (
-			2013110302	; Serial
-			86400		; Refresh
-			86400		; Retry
+			2013121000	; Serial
+			600		; Refresh
+			600		; Retry
 			2419200		; Expire
 			86400 )	; Negative Cache TTL
 
 	IN	NS	unicus.ddo.jp.
 	IN	MX	10	mailhost.unicus.ddo.jp.
 
-@		IN	A	192.168.0.3
+@		IN	A	192.168.0.7
 hitode		IN	A	192.168.0.1
 starfish	IN	A	192.168.0.3
 www		IN	A	192.168.0.3
@@ -20,6 +20,7 @@ boxfish	IN	A	192.168.0.7
 mailhost	IN	A	192.168.0.7
 mail		IN	A	192.168.0.7
 
+kancolle	IN	A	192.168.0.97	; iPhone for boru temperature monitoring
 guppy		IN	A	192.168.0.98	; iPhone for boru temperature monitoring
 viera		IN	A	192.168.0.99
 suzuki		IN	A	192.168.0.100
