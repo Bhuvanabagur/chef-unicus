@@ -11,7 +11,7 @@ package "ntp" do
   action :upgrade
 end
 
-service "ntpd" do
+service "ntp" do
   action :enable
   supports :start => true, :stop => true, :restart => true
 end
