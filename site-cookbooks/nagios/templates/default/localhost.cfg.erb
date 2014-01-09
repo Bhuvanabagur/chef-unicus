@@ -9,11 +9,11 @@ define host{
 
 define host{
 	use             generic-host            ; Name of host template to use
-	host_name       starfish
-	alias           starfish
+	host_name       boxfish
+	alias           boxfish
 	hostgroups      http-servers,ssh-servers
 	parents         hitode
-	address         starfish.unicus.ddo.jp
+	address         boxfish.unicus.ddo.jp
 }
 
 define host{
@@ -108,20 +108,30 @@ define host{
 	parents         aterm
 }
 
+# kancolle VM on boxfish
+define host{
+	use		generic-host
+	host_name	kancolle
+	alias		kancolle
+	address	kancolle.unicus.ddo.jp
+	parents	boxfish
+	hostgroups      ssh-servers
+}
+
 # Define a service to check the disk space of the root partition
 # on the local machine.  Warning if < 20% free, critical if
 # < 10% free space on partition.
 
 define service{
 	use                             generic-service         ; Name of service template to use
-	host_name                       starfish
+	host_name                       boxfish
 	service_description             Disk Space
 	check_command                   check_all_disks!20%!10%
 }
 
 define service {
 	use			generic-service
-	host_name		starfish
+	host_name		boxfish
 	service_description	Apt Package Status
 	check_command		check_apt
 	notification_interval	2880
@@ -130,9 +140,9 @@ define service {
 
 define service {
   use                  generic-service
-  host_name            starfish
+  host_name            boxfish
   service_description  Dropbox Backup Freshness
-  check_command        check_git_freshness!/mnt/backup/dropbox!2days
+  check_command        check_git_freshness!/suzuki/backup/haya/dropbox!2days
 }
 
 # Define a service to check the number of currently logged in
@@ -141,7 +151,7 @@ define service {
 
 define service{
 	use                             generic-service         ; Name of service template to use
-	host_name                       starfish
+	host_name                       boxfish
 	service_description             Current Users
 	check_command                   check_users!20!50
 }
@@ -153,7 +163,7 @@ define service{
 
 define service{
 	use                             generic-service         ; Name of service template to use
-	host_name                       starfish
+	host_name                       boxfish
 	service_description             Total Processes
 	check_command                   check_procs!250!400
 }
@@ -164,7 +174,7 @@ define service{
 
 define service{
 	use                             generic-service         ; Name of service template to use
-	host_name                       starfish
+	host_name                       boxfish
 	service_description             Current Load
 	check_command                   check_load!10.0!8.0!6.0!12.0!10.0!8.0
 }
@@ -175,7 +185,7 @@ define command{
 }
 
 define service {
-	host_name		starfish
+	host_name		boxfish
 	service_description	GrowthForecast
 	check_command		check_http_port!4080
 	use			generic-service

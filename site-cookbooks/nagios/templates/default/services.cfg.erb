@@ -64,14 +64,14 @@ define service {
 }
 
 define service {
-	host_name		starfish
+	host_name		boxfish
 	service_description	BoruBot worker process
 	check_command		check_borubot_worker
 	use			generic-service
 }
 
 define service {
-	host_name		starfish
+	host_name		boxfish
 	service_description	BoruBot TweetBot
 	check_command		check_borubot_tweetbot
 	use			generic-service
