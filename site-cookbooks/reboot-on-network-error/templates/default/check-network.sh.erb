@@ -1,0 +1,23 @@
+#!/bin/bash
+
+fail_count_file=/tmp/network_fail_count
+reboot_thresh=60
+
+if ! [ -f $fail_count_file ]; then
+    echo 0 > $fail_count_file
+fi
+
+fail_count=$(cat $fail_count_file)
+
+if ping -q -c 1 192.168.0.7; then
+    echo "SUCCESS"
+    echo 0 > $fail_count_file
+else
+    echo "FAILURE"
+    fail_count=$((fail_count+1))
+    echo $fail_count > $fail_count_file
+    if [ $fail_count -ge $reboot_thresh ]; then
+        echo 0 > $fail_count_file
+        sudo reboot
+    fi
+fi

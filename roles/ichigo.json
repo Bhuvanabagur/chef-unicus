@@ -32,6 +32,7 @@
 	"recipe[aliases]",
 	"recipe[postfix::ichigo]",
 	"recipe[owfs]",
-	"recipe[lirc]"
+	"recipe[lirc]",
+	"recipe[reboot-on-network-error]"
     ]
 }
