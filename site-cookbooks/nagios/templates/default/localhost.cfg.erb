@@ -18,11 +18,11 @@ define host{
 
 define host{
 	use             generic-host
-	host_name       aterm
-	alias           aterm
+	host_name       airstation
+	alias           airstation
 	hostgroups      http-servers
 	parents         hitode
-	address         aterm.unicus.ddo.jp
+	address         airstation.unicus.ddo.jp
 }
 
 define host{
@@ -30,7 +30,7 @@ define host{
 	host_name       justio2270
 	alias           justio2270
 	hostgroups      http-servers
-	parents         aterm
+	parents         airstation
 	address         justio2270.unicus.ddo.jp
 }
 
@@ -48,7 +48,7 @@ define host{
 	host_name       namazu
 	alias           namazu
 	address         namazu.unicus.ddo.jp
-	parents         aterm
+	parents         airstation
 }
 
 define host{
@@ -64,7 +64,7 @@ define host{
 	host_name	kodomomoko
 	alias		kodomomoko
 	address	kodomomoko.unicus.ddo.jp
-	parents	aterm
+	parents	airstation
 }
 
 define host{
@@ -72,7 +72,7 @@ define host{
 	host_name	planex-gw
 	alias		planex-gw
 	address	planex-gw.unicus.ddo.jp
-	parents	aterm
+	parents	airstation
 }
 
 define host{
@@ -81,7 +81,7 @@ define host{
 	alias		ichigo01
 	hostgroups	ssh-servers
 	address	ichigo01.unicus.ddo.jp
-	parents	aterm
+	parents	airstation
 }
 define host{
 	use		generic-host
@@ -89,15 +89,7 @@ define host{
 	alias		ichigo02
 	hostgroups	ssh-servers
 	address	ichigo02.unicus.ddo.jp
-	parents	aterm
-}
-
-define host{
-	use		generic-host
-	host_name	envy100
-	alias		envy100
-	address	envy100.unicus.ddo.jp
-	parents	aterm
+	parents	airstation
 }
 
 define host{
@@ -105,7 +97,7 @@ define host{
 	host_name       guppy
 	alias           guppy
 	address         guppy.unicus.ddo.jp
-	parents         aterm
+	parents         airstation
 }
 
 # kancolle VM on boxfish
@@ -165,7 +157,7 @@ define service{
 	use                             generic-service         ; Name of service template to use
 	host_name                       boxfish
 	service_description             Total Processes
-	check_command                   check_procs!250!400
+	check_command                   check_procs!300!400
 }
 
 

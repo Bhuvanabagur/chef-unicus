@@ -25,6 +25,13 @@ server {
 
 	server_name unicus.ddo.jp;
 
+	# location /kancolle {
+	# 	set $do_not_cache 0;
+	# 	proxy_no_cache    $do_not_cache;
+	# 	proxy_cache_bypass      $do_not_cache;
+	# 	proxy_pass http://kancolle.unicus.ddo.jp:4567;
+	# }
+
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to index.html

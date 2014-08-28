@@ -60,7 +60,8 @@ misc        = ['lv',
                'sysstat',
                'python-gpgme',
                'zsh',
-               'graphviz']
+               'graphviz',
+               'rdiff-backup']
 
 storage = %w|
 dosfstools

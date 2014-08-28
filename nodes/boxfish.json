@@ -34,7 +34,8 @@
 	"recipe[crontab::boxfish]",
 	"recipe[vncserver]",
 	"recipe[virtualbox]",
-	"recipe[ntpd]"
+	"recipe[ntpd]",
+	"recipe[varnish]"
     ],
     "ipaddr": "192.168.0.7",
     "cookbook-hostname": {

@@ -1,6 +1,8 @@
 {
     "run_list":[ "role[ichigo]" ],
-    "ipaddr": "192.168.0.150",
+    "ipaddr": "192.168.100.150",
+    "subnet": "192.168.100.0",
+    "gateway": "192.168.100.1",
     "cookbook-hostname": {
 	"hostname": "ichigo-dev"
     },

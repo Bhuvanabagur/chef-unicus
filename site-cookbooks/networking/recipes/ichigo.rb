@@ -11,6 +11,14 @@ unless !node['ipaddr'] || node['ipaddr'] =~ /\d+(\.\d+)/
   raise RuntimeError.new("Valid IP address is not supplied: #{node['ipaddr'].inspect}")
 end
 
+unless !node['subnet'] || node['subnet'] =~ /\d+(\.\d+)/
+  raise RuntimeError.new("Valid IP address is not supplied: #{node['subnet'].inspect}")
+end
+
+unless !node['gateway'] || node['gateway'] =~ /\d+(\.\d+)/
+  raise RuntimeError.new("Valid IP address is not supplied: #{node['gateway'].inspect}")
+end
+
 template '/etc/network/interfaces' do
   owner 'root'
   group 'root'

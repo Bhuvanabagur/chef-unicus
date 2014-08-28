@@ -9,19 +9,17 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
   address   <%= node['ipaddr'] %>
-  network   192.168.0.0
+  network   <%= node['subnet'] %>
   netmask   255.255.255.0
-  broadcast 192.168.0.255
-  gateway   192.168.0.1
+  gateway   <%= node['gateway'] %>
   dns-nameservers 192.168.0.3 192.168.0.1
 <% elsif iface =~ /^wlan\d+$/ %>
 allow-hotplug wlan0
 iface wlan0 inet static
   address   <%= node['ipaddr'] %>
-  network   192.168.0.0
+  network   <%= node['subnet'] %>
   netmask   255.255.255.0
-  broadcast 192.168.0.255
-  gateway   192.168.0.1
+  gateway   <%= node['gateway'] %>
   dns-nameservers 192.168.0.3 192.168.0.1
 
 wpa-driver wext

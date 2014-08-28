@@ -32,9 +32,16 @@ zone "unicus.ddo.jp" {
 	type master;
 	file "/etc/bind/db.unicus.ddo.jp";
 };
+
 // zone for 192.168.0.0/25
 zone "0.168.192.in-addr.arpa" {
 	type master;
 	file "/etc/bind/db.192.168.0";
+};
+
+// zone for 192.168.100.0/25
+zone "100.168.192.in-addr.arpa" {
+	type master;
+	file "/etc/bind/db.192.168.100";
 };
 

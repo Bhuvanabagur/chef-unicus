@@ -15,3 +15,11 @@ template '/etc/nginx/sites-available/default' do
 
   notifies :restart, 'service[nginx]'
 end
+
+# template '/etc/nginx/conf.d/proxy.conf' do
+#   owner 'root'
+#   group 'root'
+#   mode 0644
+# 
+#   notifies :restart, 'service[nginx]'
+# end

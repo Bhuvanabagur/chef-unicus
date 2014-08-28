@@ -46,7 +46,7 @@ end
 
 cron "backup dropbox" do
   minute "30"
-  hour   "*/6"
+  hour   "23"
 
   user "haya"
   command "nice -n 19 /bin/bash /home/haya/dropbox/backup-dropbox.sh > /dev/null"

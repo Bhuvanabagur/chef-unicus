@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: networking
-# Recipe:: ichigo
+# Recipe:: default
 #
 # Copyright 2013, Yuto HAYAMIZU
 #

@@ -15,6 +15,10 @@ package 'nginx-full' do
   action :upgrade
 end
 
+directory '/var/cache/nginx/unicus.ddo.jp' do
+  action :create
+  recursive true
+end
 
 service 'nginx' do
   action [:enable, :start]

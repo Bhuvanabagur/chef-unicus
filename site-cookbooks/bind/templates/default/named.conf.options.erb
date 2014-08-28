@@ -1,6 +1,7 @@
 // define 'localnet' access control list
 acl localnet {
 	192.168.0.0/24;
+	192.168.100.0/24;
 	10.8.0.0/24;
 	127.0.0.1;
 };
@@ -44,5 +45,13 @@ options {
 logging {
 	// do not record reverse lookup error
 	category lame-servers { null; };
+
+	// channel "log_queries" {
+	// 	file "/var/log/bind-queries.log" versions 3 size 10m;
+	// 	severity info;
+	// 	print-time yes;
+	// 	print-category yes;
+	// };
+	// category queries { "log_queries"; };
 };
 
