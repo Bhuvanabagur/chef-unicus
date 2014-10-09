@@ -22,7 +22,7 @@ end
 
 mount "suzuki haya" do
   action [:enable, :mount]
-  device 'suzuki.unicus.ddo.jp:/haya'
+  device '192.168.0.100:/haya'
   fstype 'nfs'
   mount_point haya_dir
   options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'

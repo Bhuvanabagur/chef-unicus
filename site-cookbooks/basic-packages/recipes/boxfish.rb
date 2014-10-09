@@ -11,6 +11,7 @@ pkgs = %w!
 mosh
 transmission-cli
 rinse
+cron-apt
 !
 
 [*pkgs].each do |p|
