@@ -60,12 +60,6 @@ cron "report dropbox stat to growthforecast" do
   command "/home/haya/dropbox/etc/unicus/dropbox-stat"
 end
 
-# cron "proximity check" do
-#   minute "*"
-# 
-#   user "haya"
-#   command "/home/haya/Dropbox/mail-proximity.sh"
-# end
 
 cron "download radio movies" do
   minute "0"
@@ -123,9 +117,9 @@ cron "borubot" do
   command "/home/haya/repos/boru-bot/run worker --environment=production"
 end
 
-cron "proximity check" do
-  minute "*"
-
-  user "haya"
-  command "/home/haya/dropbox/mail-proximity.sh"
-end
+# cron "proximity check" do
+#   minute "*"
+# 
+#   user "haya"
+#   command "/home/haya/dropbox/mail-proximity.sh"
+# end
