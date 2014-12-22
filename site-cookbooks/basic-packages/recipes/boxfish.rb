@@ -12,6 +12,8 @@ mosh
 transmission-cli
 rinse
 cron-apt
+bluez-utils
+gnome-bluetooth
 !
 
 [*pkgs].each do |p|
