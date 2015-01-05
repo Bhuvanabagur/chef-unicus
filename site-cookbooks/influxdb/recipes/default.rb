@@ -17,3 +17,8 @@ dpkg_package "influxdb_latest_amd64.deb" do
   provider Chef::Provider::Package::Dpkg
   source "/tmp/influxdb_latest_amd64.deb"
 end
+
+service "influxdb" do
+  action [:enable, :start]
+  supports :start => true, :stop => true, :restart => true, :status => true
+end
