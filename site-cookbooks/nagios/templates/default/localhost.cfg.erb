@@ -119,6 +119,8 @@ define service{
 	host_name                       boxfish
 	service_description             Disk Space
 	check_command                   check_all_disks!20%!10%
+	normal_check_interval           720 # 12hours for sleeping QNAP
+	retry_check_interval            60
 }
 
 define service {
@@ -135,6 +137,8 @@ define service {
   host_name            boxfish
   service_description  Dropbox Backup Freshness
   check_command        check_git_freshness!/suzuki/backup/haya/dropbox!2days
+  normal_check_interval           720 # 12hours for sleeping QNAP
+  retry_check_interval            60
 }
 
 # Define a service to check the number of currently logged in
@@ -176,10 +180,10 @@ define command{
 	command_line    /usr/lib/nagios/plugins/check_http -H '$HOSTADDRESS$' -I '$HOSTADDRESS$' -p $ARG1$
 }
 
-define service {
-	host_name		boxfish
-	service_description	GrowthForecast
-	check_command		check_http_port!4080
-	use			generic-service
-}
+# define service {
+# 	host_name		boxfish
+# 	service_description	GrowthForecast
+# 	check_command		check_http_port!4080
+# 	use			generic-service
+# }
 
