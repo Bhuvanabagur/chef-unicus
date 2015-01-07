@@ -22,29 +22,29 @@ volatile_dir = '/suzuki/volatile'
   end
 end
 
-mount "suzuki media" do
-  action [:enable, :mount]
-  device '192.168.0.100:/Multimedia'
-  fstype 'nfs'
-  mount_point media_dir
-  options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
-  pass 0
-end
-
-mount "suzuki backup" do
-  action [:enable, :mount]
-  device '192.168.0.100:/Backup'
-  fstype 'nfs'
-  mount_point backup_dir
-  options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
-  pass 0
-end
-
-mount "suzuki volatile" do
-  action [:enable, :mount]
-  device '192.168.0.100:/Volatile'
-  fstype 'nfs'
-  mount_point volatile_dir
-  options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
-  pass 0
-end
+# mount "suzuki media" do
+#   action :disable
+#   device '192.168.0.100:/Multimedia'
+#   fstype 'nfs'
+#   mount_point media_dir
+#   options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
+#   pass 0
+# end
+# 
+# mount "suzuki backup" do
+#   action :disable
+#   device '192.168.0.100:/Backup'
+#   fstype 'nfs'
+#   mount_point backup_dir
+#   options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
+#   pass 0
+# end
+# 
+# mount "suzuki volatile" do
+#   action :disable
+#   device '192.168.0.100:/Volatile'
+#   fstype 'nfs'
+#   mount_point volatile_dir
+#   options 'rw,bg,hard,intr,rsize=4096,wsize=4096,timeo=300,nolock'
+#   pass 0
+# end
