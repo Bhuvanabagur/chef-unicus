@@ -39,6 +39,14 @@ end
   end
 end
 
+# install check_all_disk plugin config
+template "/etc/nagios-plugins/config/disk.cfg" do
+  owner 'root'
+  group 'root'
+  mode 0644
+  notifies :restart, 'service[nagios3]'
+end
+
 # check_x224
 remote_file '/usr/lib/nagios/plugins/check_x224' do
   source 'http://troels.arvin.dk/code/nagios/check_x224'
