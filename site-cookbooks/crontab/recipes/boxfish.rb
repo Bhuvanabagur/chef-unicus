@@ -26,7 +26,6 @@ cron "dropbox" do
   command "/usr/bin/dropbox start"
 end
 
-
 ddo_jp_password = Chef::EncryptedDataBagItem.load('passwords', 'ddo-jp')['password']
 
 cron "ddo-jp-update" do
@@ -115,6 +114,17 @@ cron "borubot" do
 
   user "haya"
   command "/home/haya/repos/boru-bot/run worker --environment=production"
+end
+
+cron "wakeup suzuki" do
+  minute	"0"
+  hour		"23"
+  day		"*"
+  month	"*"
+  weekday	"*"
+
+  user "haya"
+  command "/usr/bin/wakeonlan 00:08:9b:ce:b5:78"
 end
 
 # cron "proximity check" do
