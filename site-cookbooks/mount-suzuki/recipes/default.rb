@@ -7,20 +7,20 @@
 # All rights reserved - Do Not Redistribute
 #
 
-media_dir = '/suzuki/media'
-backup_dir = '/suzuki/backup'
-volatile_dir = '/suzuki/volatile'
+# media_dir = '/suzuki/media'
+# backup_dir = '/suzuki/backup'
+# volatile_dir = '/suzuki/volatile'
 
-# make mount point
-[media_dir, backup_dir, volatile_dir].each do |dir|
-  directory dir do
-    action :create
-    owner "root"
-    group "root"
-    mode 0755
-    recursive true
-  end
-end
+# # make mount point
+# [media_dir, backup_dir, volatile_dir].each do |dir|
+#   directory dir do
+#     action :create
+#     owner "root"
+#     group "root"
+#     mode 0755
+#     recursive true
+#   end
+# end
 
 # mount "suzuki media" do
 #   action :disable

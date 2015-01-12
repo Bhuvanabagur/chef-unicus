@@ -7,18 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-haya_dir = '/suzuki/haya'
+# haya_dir = '/suzuki/haya'
 
-# make mount point
-[haya_dir].each do |dir|
-  directory dir do
-    action :create
-    owner "root"
-    group "root"
-    mode 0755
-    recursive true
-  end
-end
+# # make mount point
+# [haya_dir].each do |dir|
+#   directory dir do
+#     action :create
+#     owner "root"
+#     group "root"
+#     mode 0755
+#     recursive true
+#   end
+# end
 
 #
 # disable nfs mount by fstab
