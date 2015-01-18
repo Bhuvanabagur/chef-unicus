@@ -127,6 +127,17 @@ cron "wakeup suzuki" do
   command "/usr/bin/wakeonlan 00:08:9b:ce:b5:78"
 end
 
+cron "sleep suzuki" do
+  minute	"0"
+  hour		"9-20"
+  day		"*"
+  month	"*"
+  weekday	"*"
+
+  user "haya"
+  command "ssh admin@suzuki.unicus.ddo.jp /etc/init.d/pw_sleep.sh"
+end
+
 # cron "proximity check" do
 #   minute "*"
 # 
