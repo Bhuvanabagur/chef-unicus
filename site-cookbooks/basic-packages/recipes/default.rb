@@ -22,7 +22,6 @@ linux-tools
 autotools-dev
 git
 manpages-dev
-subversion
 bison
 cdbs
 chrpath
