@@ -132,14 +132,14 @@ define service {
 	normal_check_interval	10080
 }
 
-define service {
-  use                  generic-service
-  host_name            boxfish
-  service_description  Dropbox Backup Freshness
-  check_command        check_git_freshness!/suzuki/backup/haya/dropbox!2days
-  normal_check_interval           720 # 12hours for sleeping QNAP
-  retry_check_interval            60
-}
+# define service {
+#   use                  generic-service
+#   host_name            boxfish
+#   service_description  Dropbox Backup Freshness
+#   check_command        check_git_freshness!/suzuki/backup/haya/dropbox!2days
+#   normal_check_interval           720 # 12hours for sleeping QNAP
+#   retry_check_interval            60
+# }
 
 # Define a service to check the number of currently logged in
 # users on the local machine.  Warning if > 20 users, critical
