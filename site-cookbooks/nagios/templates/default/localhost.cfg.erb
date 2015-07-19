@@ -92,14 +92,6 @@ define host{
 	parents	airstation
 }
 
-define host{
-	use             generic-host
-	host_name       guppy
-	alias           guppy
-	address         guppy.unicus.ddo.jp
-	parents         airstation
-}
-
 # kancolle VM on boxfish
 define host{
 	use		generic-host
