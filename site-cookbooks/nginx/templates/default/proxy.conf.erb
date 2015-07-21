@@ -17,7 +17,7 @@ proxy_buffer_size       8k;
 proxy_buffers           100 8k;
  
 # キャッシュの設定                                                                                                                
-proxy_cache_path      /var/cache/nginx/unicus.ddo.jp levels=1:2 keys_zone=unicus.ddo.jp:15m inactive=7d max_size=1000m;
+proxy_cache_path      /var/cache/nginx/unicus.dip.jp levels=1:2 keys_zone=unicus.dip.jp:15m inactive=7d max_size=1000m;
 proxy_temp_path       /var/cache/nginx/temp;
 
 proxy_cache_valid     200 2h;

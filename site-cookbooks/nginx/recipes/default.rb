@@ -15,7 +15,7 @@ package 'nginx-full' do
   action :upgrade
 end
 
-directory '/var/cache/nginx/unicus.ddo.jp' do
+directory '/var/cache/nginx/unicus.dip.jp' do
   action :create
   recursive true
 end
