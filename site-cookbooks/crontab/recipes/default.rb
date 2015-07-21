@@ -82,15 +82,6 @@ end
 # end
 
 
-# ddo_jp_password = Chef::EncryptedDataBagItem.load('passwords', 'ddo-jp')['password']
-# 
-# cron "ddo-jp-update" do
-#   minute "*/30"
-# 
-#   user "haya"
-#   command "/usr/bin/curl \"http://free.ddo.jp/dnsupdate.php?dn=unicus.ddo.jp&pw=#{ddo_jp_password}\" > /dev/null 2>&1"
-# end
-
 # cron "backup dropbox" do
 #   minute "30"
 #   hour   "*/6"

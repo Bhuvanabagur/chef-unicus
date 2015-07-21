@@ -26,15 +26,6 @@ cron "dropbox" do
   command "/usr/bin/dropbox start"
 end
 
-ddo_jp_password = Chef::EncryptedDataBagItem.load('passwords', 'ddo-jp')['password']
-
-cron "ddo-jp-update" do
-  minute "*/30"
-
-  user "haya"
-  command "/usr/bin/curl \"http://free.ddo.jp/dnsupdate.php?dn=unicus.ddo.jp&pw=#{ddo_jp_password}\" > /dev/null 2>&1"
-end
-
 cron "daily du" do
   minute "0"
   hour   "3"
