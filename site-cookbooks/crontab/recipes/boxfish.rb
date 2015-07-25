@@ -51,13 +51,13 @@ cron "report dropbox stat to growthforecast" do
 end
 
 
-cron "download radio movies" do
-  minute "0"
-  hour   "*/6"
-
-  user "haya"
-  command "/home/haya/dropbox/Music/radio/download.sh"
-end
+# cron "download radio movies" do
+#   minute "0"
+#   hour   "*/6"
+# 
+#   user "haya"
+#   command "/home/haya/dropbox/Music/radio/download.sh"
+# end
 
 cron "RAID scrubbing: md0" do
   minute "0"
