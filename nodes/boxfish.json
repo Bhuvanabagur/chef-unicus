@@ -38,7 +38,8 @@
 	"recipe[varnish]",
 	"recipe[bluetooth]",
 	"recipe[deb-multimedia]",
-	"recipe[influxdb]"
+	"recipe[influxdb]",
+	"recipe[backports]"
     ],
     "ipaddr": "192.168.0.7",
     "cookbook-hostname": {
