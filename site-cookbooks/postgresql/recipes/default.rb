@@ -25,7 +25,7 @@ apt-get update
 EOS
 end
 
-package 'postgresql-9.2' do
+package 'postgresql-9.4' do
   action :upgrade
 end
 
