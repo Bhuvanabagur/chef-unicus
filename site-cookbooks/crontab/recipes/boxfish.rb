@@ -77,36 +77,6 @@ cron "RAID scrubbing: md1" do
   command "/bin/echo check > /sys/block/md1/md/sync_action"
 end
 
-cron "tweetbot" do
-  not_if do
-    system("su haya -c 'crontab -l' | grep 'run tweetbot'")
-  end
-
-  minute "@reboot"
-  hour " "
-  day " "
-  month " "
-  weekday " "
-
-  user "haya"
-  command "/home/haya/repos/boru-bot/run tweetbot"
-end
-
-cron "borubot" do
-  not_if do
-    system("su haya -c 'crontab -l' | grep 'boru-bot/run worker --environment=production'")
-  end
-
-  minute "@reboot"
-  hour " "
-  day " "
-  month " "
-  weekday " "
-
-  user "haya"
-  command "/home/haya/repos/boru-bot/run worker --environment=production"
-end
-
 # cron "wakeup suzuki" do
 #   minute	"0"
 #   hour		"23"

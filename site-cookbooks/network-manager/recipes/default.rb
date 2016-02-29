@@ -8,5 +8,5 @@
 #
 
 service "network-manager" do
-  action [:stop, :disable]
+  action [:start, :enable]
 end
